@@ -8,7 +8,7 @@ const translations = {
         nav_contact: "İletişim",
 
         hero_hello: "Merhaba, ben",
-        hero_role: "AI-Enhanced Solutions Architect & Industrial Engineer",
+        hero_role: "AI Destekli Çözüm Mimarı & Endüstri Mühendisi",
         hero_desc: "",
         utils_contact_btn: "İletişime Geç",
 
@@ -18,11 +18,11 @@ const translations = {
 
         section_exp: "Deneyim",
         skill_python: "Python & Scripting",
-        skill_sql: "SQL (PostgreSQL, MSSQL, MySQL, SQLite) & Data Analysis",
-        skill_ai_arch: "AI-Driven Development",
-        skill_prompt: "Prompt Engineering",
-        skill_automation: "Workflow Automation",
-        skill_rapid: "Rapid Prototyping",
+        skill_sql: "SQL (PostgreSQL, MSSQL, MySQL, SQLite) & Veri Analizi",
+        skill_ai_arch: "Yapay Zeka Tabanlı Geliştirme",
+        skill_prompt: "Prompt Mühendisliği",
+        skill_automation: "İş Akış Otomasyonu",
+        skill_rapid: "Hızlı Prototipleme",
         skill_pm: "Proje Yönetimi",
         skill_or: "Yöneylem Araştırması (OR)",
         skill_analytical: "Analitik Düşünme",
