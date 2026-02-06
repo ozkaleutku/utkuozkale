@@ -1,6 +1,6 @@
 const translations = {
     tr: {
-        page_title: "Utku Altan Özkale | Endüstri Mühendisi & Yazılım Geliştirici",
+        page_title: "Utku Altan Özkale | AI-Augmented Solutions Architect",
         nav_about: "Hakkımda",
         nav_exp: "Deneyim",
         nav_projects: "Projeler",
@@ -8,17 +8,21 @@ const translations = {
         nav_contact: "İletişim",
 
         hero_hello: "Merhaba, ben",
-        hero_role: "Meraklı ve Gelişim Odaklı Mühendis",
+        hero_role: "AI-Enhanced Solutions Architect & Industrial Engineer",
         hero_desc: "",
         utils_contact_btn: "İletişime Geç",
 
         section_about: "Hakkımda",
-        about_p1: "Analitik düşünce yapısını ve programlama becerilerini yaratıcı bir bakış açısıyla birleştirerek, farklı projelerde etkili çözümler üreten; sürekli gelişime ve değer yaratmaya odaklı, hırslı bir mühendisim. Süreç iyileştirme, verimlilik artırma ve dijital çözüm geliştirme konularında aktif olarak çalışıyorum.",
+        about_p1: "Klasik mühendislik disiplinini yapay zeka destekli devrimsel iş akışlarıyla birleştirerek, endüstriyel problemleri minimum maliyet ve maksimum hızla çözen bir 'Çözüm Mimarıyım'. Analitik düşünce yapımı ve teknik yetkinliklerimi modern AI araçlarıyla güçlendiriyor; işletmelerin sadece 'kodlanan' değil, 'optimize edilen' süreçlere sahip olmasını sağlıyorum. Sürekli gelişime odaklı, hırslı bir mühendis olarak; süreç iyileştirme, verimlilik artırma ve hızlı prototipleme konularında katma değer yaratıyorum.",
         about_p2: "Şu ana kadar edindiğim teknik yetkinlikler:",
 
         section_exp: "Deneyim",
-        skill_python: "Python",
-        skill_sql: "SQL (PostgreSQL, MSSQL, MySQL, SQLite)",
+        skill_python: "Python & Scripting",
+        skill_sql: "SQL (PostgreSQL, MSSQL, MySQL, SQLite) & Data Analysis",
+        skill_ai_arch: "AI-Driven Development",
+        skill_prompt: "Prompt Engineering",
+        skill_automation: "Workflow Automation",
+        skill_rapid: "Rapid Prototyping",
         skill_pm: "Proje Yönetimi",
         skill_or: "Yöneylem Araştırması (OR)",
         skill_analytical: "Analitik Düşünme",
@@ -29,16 +33,16 @@ const translations = {
 
         job_serdar_title: "Proje Mühendisi (Stajyer)",
         job_serdar_date: "Ekim 2025 - Haziran 2026",
-        job_serdar_desc: "AI/ML tabanlı stok ve depo yönetim sistemi geliştiriyorum.",
+        job_serdar_desc: "AI tabanlı stok yönetim sistemini sıfırdan tasarlayıp optimize ederek geliştiriyorum.",
 
         job_bozankaya_title: "Satın Alma Stajyeri",
         job_bozankaya_date: "Ağustos 2025 - Eylül 2025",
-        job_bozankaya_desc1: "Manuel Excel süreçlerini otomatize etmek için Python (pandas ve openpyxl) tabanlı bir çözüm geliştirdim.",
-        job_bozankaya_desc2: "Zaman verimliliğinde %83 iyileşme sağladım.",
+        job_bozankaya_desc1: "Manuel veri girişlerini Python & AI kullanarak otomatize ettim.",
+        job_bozankaya_desc2: "Haftalık 12 saat süren iş yükünü 2 saate indirerek %83 zaman verimliliği sağladım ve insan hatalarını azalttım.",
 
-        job_ulak_title: "ERP Stajyeri",
+        job_ulak_title: "ERP Solutions Developer (Intern)",
         job_ulak_date: "Temmuz 2025 - Ağustos 2025",
-        job_ulak_desc: "Kendi ERP tabanlı Stok ve Varlık Yönetimi Takip Sistemimi geliştirdim (Python).",
+        job_ulak_desc: "Kurumsal ihtiyaçlara özel, hızlı prototiplenmiş Stok ve Varlık Takip Sistemi geliştirdim.",
 
         job_emge_title: "Kalite Kontrol Stajyeri",
         job_emge_date: "Ocak 2024 - Şubat 2024",
@@ -75,11 +79,11 @@ const translations = {
 
         section_contact: "İletişim",
         contact_heading: "Bağlantıda Kalalım",
-        contact_desc: "Yeni projeler, iş birlikleri, iş teklifleri veya sadece tanışmak için bana ulaşabilirsiniz.",
-        footer_text: "Tasarım ve Kodlama: Utku Altan Özkale &copy; 2026"
+        contact_desc: "AI tabanlı çözümler ve süreç iyileştirme projeleri için bana ulaşabilirsiniz.",
+        footer_text: "Designed by Utku Altan Özkale | Powered by AI"
     },
     en: {
-        page_title: "Utku Altan Özkale | Industrial Engineer & Developer",
+        page_title: "Utku Altan Özkale | AI-Augmented Solutions Architect",
         nav_about: "About",
         nav_exp: "Experience",
         nav_projects: "Projects",
@@ -87,17 +91,21 @@ const translations = {
         nav_contact: "Contact",
 
         hero_hello: "Hi, I am",
-        hero_role: "Curious & Growth-Oriented Engineer",
+        hero_role: "AI-Enhanced Solutions Architect & Industrial Engineer",
         hero_desc: "",
         utils_contact_btn: "Get in Touch",
 
         section_about: "About Me",
-        about_p1: "I am a driven Engineer dedicated to continuous growth and value creation. I combine analytical rigor with programming expertise and a creative mindset to deliver effective solutions. My work focuses on process improvement, efficiency enhancement, and digital solution development.",
-        about_p2: "Technical skills I've acquired so far:",
+        about_p1: "I am a 'Solutions Architect' who bridges the gap between traditional engineering discipline and AI-driven efficiency. By augmenting my analytical mindset and technical skills with modern AI tools, I solve industrial problems with maximum speed and minimum cost. As an ambitious engineer focused on continuous growth, I go beyond just writing code—I architect optimized processes, enhance operational efficiency, and deliver rapid, high-value digital solutions.",
+        about_p2: "Core Competencies & Technologies:",
 
         section_exp: "Experience",
-        skill_python: "Python",
-        skill_sql: "SQL (PostgreSQL, MSSQL, MySQL, SQLite)",
+        skill_python: "Python & Scripting",
+        skill_sql: "SQL (PostgreSQL, MSSQL, MySQL, SQLite) & Data Analysis",
+        skill_ai_arch: "AI-Driven Development",
+        skill_prompt: "Prompt Engineering",
+        skill_automation: "Workflow Automation",
+        skill_rapid: "Rapid Prototyping",
         skill_pm: "Project Management",
         skill_or: "Operation Research",
         skill_analytical: "Analytical Thinking",
@@ -108,12 +116,12 @@ const translations = {
 
         job_serdar_title: "Project Engineer (Student)",
         job_serdar_date: "October 2025 - June 2026",
-        job_serdar_desc: "Developing AI/ML based stock and warehouse management system.",
+        job_serdar_desc: "Developing, optimizing, and architecting an AI-driven stock and warehouse management system from scratch.",
 
         job_bozankaya_title: "Purchasing Intern",
         job_bozankaya_date: "August 2025 - September 2025",
-        job_bozankaya_desc1: "Developed a Python based solution (using pandas and openpyxl) to automate manual Excel processes.",
-        job_bozankaya_desc2: "Achieved an 83% improvement in time efficiency.",
+        job_bozankaya_desc1: "Automated manual data entry workflows using Python & AI agents.",
+        job_bozankaya_desc2: "Reduced weekly workload from 12 hours to 2 hours, achieving 83% time efficiency and minimizing human error.",
 
         job_ulak_title: "ERP Intern",
         job_ulak_date: "July 2025 - August 2025",
