@@ -238,8 +238,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     langBtn.addEventListener('click', () => {
         currentLang = currentLang === 'tr' ? 'en' : 'tr';
-        updateLanguage(currentLang);
         localStorage.setItem('lang', currentLang);
+        window.location.reload();
     });
 
     function updateLanguage(lang) {
