@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="opti_page_title">OptiStock AI Demo</title>
+    <meta name="description" content="OptiStock AI Demo and Documentation">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        .optistock-container {
+            max-width: 1000px;
+            margin: 120px auto 100px;
+            padding: 0 20px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--green);
+            text-decoration: none;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .back-link i {
+            margin-right: 8px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .demo-video {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+            margin-bottom: 40px;
+            display: block;
+        }
+
+        .doc-section {
+            background-color: var(--light-navy);
+            padding: 40px;
+            border-radius: 8px;
+        }
+
+        .doc-title {
+            color: var(--lightest-slate);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .doc-content {
+            color: var(--slate);
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Utku Altan Özkale</div>
+            <ul class="nav-links">
+                <li><a href="index.html#projects" data-i18n="opti_back_link">Projeler</a></li>
+                <li>
+                    <button id="lang-toggle" class="lang-btn">EN</button>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <i data-feather="menu"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="optistock-container">
+            <a href="index.html#projects" class="back-link"><i data-feather="arrow-left"></i> <span
+                    data-i18n="opti_back_to_projects">Projelere Dön</span></a>
+
+            <h1 class="doc-title" style="color: var(--green); margin-bottom: 10px;" data-i18n="opti_title">OptiStock AI
+                Demo</h1>
+            <p class="doc-content" style="margin-bottom: 30px;" data-i18n="opti_subtitle">
+                Aşağıdaki videoda OptiStock AI'nin nasıl çalıştığını inceleyebilirsiniz.
+            </p>
+
+            <img src="interactive_optistock_mrp_demo_1772310776161.webp" alt="OptiStock AI Video Demo"
+                class="demo-video">
+
+            <div class="doc-section">
+                <h2 class="doc-title" data-i18n="opti_doc_title">Dökümantasyon (Yakında)</h2>
+                <p class="doc-content" data-i18n="opti_doc_desc">
+                    OptiStock AI hakkında detaylı kullanım kılavuzu, mimari yapı ve teknik dökümanlar buraya
+                    eklenecektir.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="social-footer">
+            <a href="https://github.com/ozkaleutku" target="_blank"><i data-feather="github"></i></a>
+            <a href="https://www.linkedin.com/in/utku-altan-özkale-542a91227/" target="_blank"><i
+                    data-feather="linkedin"></i></a>
+        </div>
+        <p data-i18n="footer_text">Tasarım ve Kodlama: Utku Altan Özkale &copy; 2026</p>
+    </footer>
+
+    <script src="script.js?v=1.2"></script>
+    <script>
+        feather.replace();
+    </script>
+</body>
+
+</html>

@@ -54,6 +54,7 @@ const translations = {
         job_esen_desc: "Python (Matplotlib, Tkinter) kullanarak veri analizi ve görselleştirme çalışmaları yaptım.",
 
         section_projects: "Projeler & Girişimler",
+        proj_optistock_desc: "Yapay zeka, makine öğrenimi ve gelişmiş simülasyon teknikleri ile malzeme ihtiyaç planlaması (MRP) ve stok optimizasyonu sağlayan araç.",
         proj_phoenix_desc: "Yenilikçi dijital çözümlere odaklanan erken aşama girişimi kuruyoruz. İlk ürünümüz 'Teklifs', online ürün satışına yeni bir bakış açısı getiriyor.",
         proj_erp_desc: "Verimli envanter yönetimi ve personel malzeme atamaları için Python ve PyQt5 ile geliştirilmiş kapsamlı bir masaüstü uygulaması.",
         proj_rapid_desc: "Afet öncesi ve sonrası analiz yapabilen İHA projesi. Afet sırasında sıcak veri aktarımı ve yapay zeka entegreli görüntü işleme. Pazar araştırması ve proje yönetimi görevleri.",
@@ -80,7 +81,15 @@ const translations = {
         section_contact: "İletişim",
         contact_heading: "Bağlantıda Kalalım",
         contact_desc: "AI tabanlı çözümler ve süreç iyileştirme projeleri için bana ulaşabilirsiniz.",
-        footer_text: "Designed by Utku Altan Özkale | Powered by AI"
+        footer_text: "Designed by Utku Altan Özkale | Powered by AI",
+
+        opti_page_title: "OptiStock AI Demo",
+        opti_back_link: "Projeler",
+        opti_back_to_projects: "Projelere Dön",
+        opti_title: "OptiStock AI Demo",
+        opti_subtitle: "Aşağıdaki videoda OptiStock AI'nin nasıl çalıştığını inceleyebilirsiniz.",
+        opti_doc_title: "Dökümantasyon (Yakında)",
+        opti_doc_desc: "OptiStock AI hakkında detaylı kullanım kılavuzu, mimari yapı ve teknik dökümanlar buraya eklenecektir."
     },
     en: {
         page_title: "Utku Altan Özkale | AI-Augmented Solutions Architect",
@@ -137,6 +146,7 @@ const translations = {
         job_esen_desc: "Data analysis and visualization using Python (Matplotlib, Tkinter).",
 
         section_projects: "Projects & Startups",
+        proj_optistock_desc: "An AI-powered tool providing material requirements planning (MRP) and stock optimization using machine learning and advanced simulation techniques.",
         proj_phoenix_desc: "Building Phoenixia Soft, an early-stage startup focused on innovative digital solutions. Currently developing our first product, 'Teklifs', which brings a new perspective to online product selling.",
         proj_erp_desc: "A comprehensive desktop application built with Python and PyQt5 for efficient inventory management and employee material assignments.",
         proj_rapid_desc: "UAV project for pre- and post-disaster analysis. Real-time data transmission and AI-integrated image processing during disasters. Market research and project management duties.",
@@ -163,7 +173,15 @@ const translations = {
         section_contact: "Contact",
         contact_heading: "Get In Touch",
         contact_desc: "I am open to new projects, collaborations, job offers, or just to say hi.",
-        footer_text: "Designed & Built by Utku Altan Özkale &copy; 2026"
+        footer_text: "Designed & Built by Utku Altan Özkale &copy; 2026",
+
+        opti_page_title: "OptiStock AI Demo",
+        opti_back_link: "Projects",
+        opti_back_to_projects: "Back to Projects",
+        opti_title: "OptiStock AI Demo",
+        opti_subtitle: "You can see how OptiStock AI works in the video below.",
+        opti_doc_title: "Documentation (Coming Soon)",
+        opti_doc_desc: "Detailed user guide, architecture, and technical documentation for OptiStock AI will be added here."
     }
 };
 
