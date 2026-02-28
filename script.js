@@ -238,12 +238,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     langBtn.addEventListener('click', () => {
         currentLang = currentLang === 'tr' ? 'en' : 'tr';
+        updateLanguage(currentLang);
         localStorage.setItem('lang', currentLang);
-        window.location.reload(); // Hard refresh to perfectly apply language
     });
 
     function updateLanguage(lang) {
-        // Show the target language instead of the current one
         if (lang === 'tr') {
             langBtn.textContent = 'EN';
             document.documentElement.lang = 'tr';
@@ -260,6 +259,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // The reload trigger is no longer needed since the page refreshes
+        // Trigger documentation module reload if it exists on the page
+        if (typeof window.reloadDocLanguage === 'function') {
+            window.reloadDocLanguage();
+        }
     }
 });
