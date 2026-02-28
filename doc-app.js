@@ -104,7 +104,7 @@ function renderSidebar() {
             groupDiv.innerHTML = `<div class="nav-group-title">${label}</div>`;
 
             Object.keys(docData[lang][key]).sort().forEach(filename => {
-                const item = document.createElement('a');
+                const item = document.createElement('div');
                 item.className = 'nav-item';
                 item.textContent = filename.replace(/_/g, ' ');
                 item.onclick = () => loadPage(key, filename);

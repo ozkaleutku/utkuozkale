@@ -243,15 +243,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function updateLanguage(lang) {
-        // Update button text to show the *other* option or current? Usually current.
-        // Let's make button show the target language "EN" if we are in TR, "TR" if we are in EN
-        // Or just show current. Let's show "TR | EN" style or just content
-
+        // Updated to display the CURRENT language rather than the TARGET language
         if (lang === 'tr') {
-            langBtn.textContent = 'EN'; // Switch to EN
+            langBtn.textContent = 'TR';
             document.documentElement.lang = 'tr';
         } else {
-            langBtn.textContent = 'TR'; // Switch to TR
+            langBtn.textContent = 'EN';
             document.documentElement.lang = 'en';
         }
 
