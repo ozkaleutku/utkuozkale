@@ -11,6 +11,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- Highlight.js for code blocks -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+        id="hljs-light">
+
+    <!-- Mermaid -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.min.js"></script>
+
+    <!-- Marked -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- Highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <!-- MathJax for LaTeX formulas -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$'], ['```math', '```']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
     <style>
         .optistock-container {
             max-width: 1000px;
@@ -93,12 +118,23 @@
             <img src="interactive_optistock_mrp_demo_1772310776161.webp" alt="OptiStock AI Video Demo"
                 class="demo-video">
 
-            <div class="doc-section">
-                <h2 class="doc-title" data-i18n="opti_doc_title">Dökümantasyon (Yakında)</h2>
-                <p class="doc-content" data-i18n="opti_doc_desc">
-                    OptiStock AI hakkında detaylı kullanım kılavuzu, mimari yapı ve teknik dökümanlar buraya
-                    eklenecektir.
-                </p>
+            <div class="doc-wrapper">
+                <button class="mobile-menu-btn" onclick="toggleSidebar()">
+                    <i data-feather="menu"></i>
+                </button>
+                <nav id="doc-sidebar">
+                    <div class="sidebar-header">
+                        <h2>OptiStock AI Docs</h2>
+                    </div>
+                    <div class="nav-groups" id="nav-container">
+                        <!-- Navigation will be populated by JS -->
+                    </div>
+                </nav>
+                <div id="doc-main">
+                    <div id="doc-content" class="markdown-body">
+                        <!-- Content will be loaded here -->
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -113,6 +149,8 @@
     </footer>
 
     <script src="script.js?v=1.2"></script>
+    <script src="doc-data.js?v=1"></script>
+    <script src="doc-app.js?v=1"></script>
     <script>
         feather.replace();
     </script>
