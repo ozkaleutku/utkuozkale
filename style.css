@@ -599,7 +599,14 @@ footer {
     display: flex;
     flex-direction: row;
     background-color: var(--doc-bg-color);
-    width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+    margin: 0 !important;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    /* Force full width regardless of any other factors */
     /* Ensure full width of container */
     /* Ensure it wraps around content fully and eliminates scroll inside */
     height: auto !important;
@@ -614,7 +621,7 @@ footer {
 
 /* Sidebar */
 #doc-sidebar {
-    width: 280px;
+    width: 200px;
     background-color: var(--doc-sidebar-bg);
     border-right: 1px solid var(--doc-border-color);
     display: flex;
@@ -686,12 +693,15 @@ footer {
     min-height: 0 !important;
     overflow-y: visible !important;
     /* Let the entire page scroll instead of this sub-container */
-    padding: 3rem 2rem;
+    padding: 3rem 8% 3rem 3rem;
+    /* Increased right padding to shorten content from right */
 }
 
 #doc-content {
-    max-width: 100% !important;
-    margin: 0 auto;
+    max-width: 1100px !important;
+    /* Slightly expanded from 900px for better balance */
+    margin: 0;
+    /* Keep it aligned with the sidebar */
 }
 
 /* Markdown Content */
@@ -820,8 +830,8 @@ footer {
 
 /* Specific styling for internal mermaid text sizes */
 .doc-wrapper .mermaid svg {
-    min-width: 1000px !important;
-    /* Reduced from 1200px to fit better */
+    min-width: 950px !important;
+    /* Slightly expanded from 800px for better visibility */
     width: 100% !important;
     max-width: none !important;
     height: auto !important;
