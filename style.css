@@ -806,13 +806,18 @@ footer {
     padding: 2rem;
     border-radius: 8px;
     margin: 2rem 0;
-    overflow: visible !important;
+    overflow-x: auto !important;
+    /* Allow horizontal scrolling for large svgs */
+    overflow-y: hidden !important;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    /* Start drawing from left edge with overflow */
 }
 
 /* Specific styling for internal mermaid text sizes */
 .doc-wrapper .mermaid svg {
+    min-width: 1200px !important;
+    /* Force a massive structural layout so text scales huge inside */
     width: 100% !important;
     max-width: none !important;
     height: auto !important;
@@ -821,14 +826,14 @@ footer {
 .doc-wrapper .mermaid svg text.nodeLabel,
 .doc-wrapper .mermaid svg span.nodeLabel,
 .doc-wrapper .mermaid svg div.nodeLabel {
-    font-size: 24px !important;
+    font-size: 32px !important;
     line-height: 1.2 !important;
 }
 
 .doc-wrapper .mermaid svg text.edgeLabel,
 .doc-wrapper .mermaid svg span.edgeLabel,
 .doc-wrapper .mermaid svg div.edgeLabel {
-    font-size: 20px !important;
+    font-size: 26px !important;
 }
 
 /* Mobile Menu Button */
