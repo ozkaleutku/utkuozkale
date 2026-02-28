@@ -601,7 +601,7 @@ footer {
     background-color: var(--doc-bg-color);
     /* Ensure it wraps around content fully and eliminates scroll inside */
     height: auto !important;
-    min-height: none !important;
+    min-height: 0 !important;
     overflow: visible !important;
     position: relative;
     border: 1px solid var(--doc-border-color);
@@ -676,6 +676,7 @@ footer {
 #doc-main {
     flex: 1;
     height: auto !important;
+    min-height: 0 !important;
     overflow-y: visible !important;
     /* Let the entire page scroll instead of this sub-container */
     padding: 3rem 2rem;
@@ -741,8 +742,8 @@ footer {
     display: table !important;
     /* Make tables utilize full space properly */
     overflow-x: auto;
-    font-size: 1.25rem !important;
-    /* Larger table font */
+    font-size: 2rem !important;
+    /* Extremely aggressive scale requested */
 }
 
 .doc-wrapper .markdown-body th,
@@ -802,23 +803,29 @@ footer {
     padding: 2rem;
     border-radius: 8px;
     margin: 2rem 0;
-    overflow-x: auto;
+    overflow: visible !important;
     display: flex;
     justify-content: center;
 }
 
 /* Specific styling for internal mermaid text sizes */
 .doc-wrapper .mermaid svg {
-    max-width: 100% !important;
+    width: 100% !important;
+    max-width: none !important;
     height: auto !important;
-    font-size: 24px !important;
-    /* Base larger size */
 }
 
-.doc-wrapper .mermaid svg .nodeLabel,
-.doc-wrapper .mermaid svg .edgeLabel {
-    font-size: 1.5rem !important;
-    /* Increase literal font sizes inside nodes and edges */
+.doc-wrapper .mermaid svg text.nodeLabel,
+.doc-wrapper .mermaid svg span.nodeLabel,
+.doc-wrapper .mermaid svg div.nodeLabel {
+    font-size: 50px !important;
+    line-height: 1.2 !important;
+}
+
+.doc-wrapper .mermaid svg text.edgeLabel,
+.doc-wrapper .mermaid svg span.edgeLabel,
+.doc-wrapper .mermaid svg div.edgeLabel {
+    font-size: 40px !important;
 }
 
 /* Mobile Menu Button */
