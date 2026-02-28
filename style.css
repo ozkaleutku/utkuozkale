@@ -599,10 +599,10 @@ footer {
     display: flex;
     flex-direction: row;
     background-color: var(--doc-bg-color);
-    color: var(--doc-text-color);
-    border-radius: 8px;
-    overflow: hidden;
-    /* Removed min-height so it wraps around content fully */
+    /* Ensure it wraps around content fully and eliminates scroll inside */
+    height: auto !important;
+    min-height: none !important;
+    overflow: visible !important;
     position: relative;
     border: 1px solid var(--doc-border-color);
     margin-bottom: 80px;
@@ -675,7 +675,8 @@ footer {
 /* Main Content */
 #doc-main {
     flex: 1;
-    overflow-y: visible;
+    height: auto !important;
+    overflow-y: visible !important;
     /* Let the entire page scroll instead of this sub-container */
     padding: 3rem 2rem;
 }
@@ -737,10 +738,10 @@ footer {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 1em;
-    display: table;
+    display: table !important;
     /* Make tables utilize full space properly */
     overflow-x: auto;
-    font-size: 1.25rem;
+    font-size: 1.25rem !important;
     /* Larger table font */
 }
 
