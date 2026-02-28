@@ -1,3 +1,20 @@
+// Export re-render function so the main app script can trigger it
+window.reloadDocLanguage = function () {
+    renderSidebar();
+
+    // Attempt to reload the current page, or default to first
+    const activeItem = document.querySelector('.nav-item.active');
+    if (activeItem) {
+        loadPage(activeItem.dataset.group, activeItem.dataset.page);
+    } else {
+        loadPage('yatirimci_ozeti', Object.keys(docData[getCurrentLang()]['yatirimci_ozeti'])[0]);
+    }
+}
+
+function getCurrentLang() {
+    return localStorage.getItem('lang') || 'tr';
+}
+
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     try {
@@ -27,7 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
             loadPage(group, page);
         } else {
             // Default to Home (Ana_Sayfa) or first available
-            loadPage('yatirimci_ozeti', 'Neden_Yapay_Zeka_MRP');
+            const lang = getCurrentLang();
+            loadPage('yatirimci_ozeti', Object.keys(docData[lang]['yatirimci_ozeti'])[0]);
         }
 
         // Initialize Mermaid
@@ -64,18 +82,28 @@ function renderSidebar() {
     const navContainer = document.getElementById('nav-container');
     navContainer.innerHTML = '';
 
-    const groups = {
+    const lang = getCurrentLang();
+
+    const groupsEn = {
+        'yatirimci_ozeti': 'Investor Vision',
+        'yapay_zeka_teknolojileri': 'AI Technologies Used',
+        'sistem_ozellikleri': 'Featured Capabilities'
+    };
+
+    const groupsTr = {
         'yatirimci_ozeti': 'Yatırımcı Vizyonu',
         'yapay_zeka_teknolojileri': 'Kullanılan AI Teknolojileri',
         'sistem_ozellikleri': 'Öne Çıkan Özellikler'
     };
 
+    const groups = lang === 'en' ? groupsEn : groupsTr;
+
     for (const [key, label] of Object.entries(groups)) {
-        if (docData[key] && Object.keys(docData[key]).length > 0) {
+        if (docData[lang][key] && Object.keys(docData[lang][key]).length > 0) {
             const groupDiv = document.createElement('div');
             groupDiv.innerHTML = `<div class="nav-group-title">${label}</div>`;
 
-            Object.keys(docData[key]).sort().forEach(filename => {
+            Object.keys(docData[lang][key]).sort().forEach(filename => {
                 const item = document.createElement('a');
                 item.className = 'nav-item';
                 item.textContent = filename.replace(/_/g, ' ');
@@ -92,7 +120,11 @@ function renderSidebar() {
 
 // Page Loading
 function loadPage(group, filename) {
-    const content = docData[group][filename];
+    const lang = getCurrentLang();
+    // Safety check in case the URL has a non-existent group/file
+    if (!docData[lang] || !docData[lang][group]) return;
+
+    const content = docData[lang][group][filename];
     if (!content) return;
 
     // Update active state

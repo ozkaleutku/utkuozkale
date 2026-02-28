@@ -262,5 +262,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 element.textContent = translations[lang][key];
             }
         });
+
+        // Trigger documentation module reload if it exists on the page
+        if (typeof window.reloadDocLanguage === 'function') {
+            window.reloadDocLanguage();
+        }
     }
 });
