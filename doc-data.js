@@ -74,7 +74,7 @@ Sistem veriyi parçalara ayırarak zekice bir öngörü üretir:
 Tüm bu "Gürültüden" arındırılmış modelleme sayesinde, satınalma biriminiz reaktif alımlar yapmak yerine proaktif sözleşmelerin konforunu yaşar.
 
 \`\`\`mermaid
-graph LR
+graph TD
     A[Ham Satış Verisi] --> B(Makine Öğrenmesi - Zaman Serisi Modeli)
     B --> C[Mevsimsellik Algısı]
     B --> D[Büyüme İvmesi Analizi]
@@ -188,7 +188,7 @@ The system produces a brilliant prediction by breaking the data into pieces:
 Thanks to all this "Noise-Free" modeling, your procurement department enjoys the comfort of proactive contracts instead of making reactive purchases.
 
 \`\`\`mermaid
-graph LR
+graph TD
     A[Raw Sales Data] --> B(Machine Learning - Time Series Model)
     B --> C[Seasonality Detection]
     B --> D[Growth Momentum Analysis]

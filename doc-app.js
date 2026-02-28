@@ -1,13 +1,24 @@
-// Export re-render function so the main app script can trigger it
 window.reloadDocLanguage = function () {
+    const activeItem = document.querySelector('.nav-item.active');
+    let groupToLoad = 'yatirimci_ozeti';
+    let pageIndex = 0;
+
+    if (activeItem) {
+        groupToLoad = activeItem.dataset.group;
+        const prevLang = getCurrentLang() === 'en' ? 'tr' : 'en';
+        if (docData[prevLang] && docData[prevLang][groupToLoad]) {
+            const keys = Object.keys(docData[prevLang][groupToLoad]).sort();
+            pageIndex = keys.indexOf(activeItem.dataset.page);
+            if (pageIndex === -1) pageIndex = 0;
+        }
+    }
+
     renderSidebar();
 
-    // Attempt to reload the current page, or default to first
-    const activeItem = document.querySelector('.nav-item.active');
-    if (activeItem) {
-        loadPage(activeItem.dataset.group, activeItem.dataset.page);
-    } else {
-        loadPage('yatirimci_ozeti', Object.keys(docData[getCurrentLang()]['yatirimci_ozeti'])[0]);
+    const currentLang = getCurrentLang();
+    if (docData[currentLang] && docData[currentLang][groupToLoad]) {
+        const newKeys = Object.keys(docData[currentLang][groupToLoad]).sort();
+        loadPage(groupToLoad, newKeys[pageIndex] || newKeys[0]);
     }
 }
 
