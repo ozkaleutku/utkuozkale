@@ -10,8 +10,10 @@ const translations = {
         hero_hello: "Merhaba, ben",
         hero_role: "AI Destekli Çözüm Mimarı & Endüstri Mühendisi",
         hero_desc: "",
+        hero_cv_btn: "CV İndir",
         utils_contact_btn: "İletişime Geç",
 
+        nav_cv: "CV İndir",
         section_about: "Hakkımda",
         about_p1: "Klasik mühendislik disiplinini yapay zeka destekli devrimsel iş akışlarıyla birleştirerek, endüstriyel problemleri minimum maliyet ve maksimum hızla çözen bir 'Çözüm Mimarıyım'. Analitik düşünce yapımı ve teknik yetkinliklerimi modern AI araçlarıyla güçlendiriyor; işletmelerin sadece 'kodlanan' değil, 'optimize edilen' süreçlere sahip olmasını sağlıyorum. Sürekli gelişime odaklı, hırslı bir mühendis olarak; süreç iyileştirme, verimlilik artırma ve hızlı prototipleme konularında katma değer yaratıyorum.",
         about_p2: "Şu ana kadar edindiğim teknik yetkinlikler:",
@@ -54,7 +56,7 @@ const translations = {
         job_esen_desc: "Python (Matplotlib, Tkinter) kullanarak veri analizi ve görselleştirme çalışmaları yaptım.",
 
         section_projects: "Projeler & Girişimler",
-        proj_optistock_desc: "Yapay zeka, makine öğrenimi ve gelişmiş simülasyon teknikleri ile malzeme ihtiyaç planlaması (MRP) ve stok optimizasyonu sağlayan araç.",
+        proj_optistock_desc: "Yapay zeka merkezli modüler bir ERP çerçevesi. MRP ve stok optimizasyonu motorlarını; talep tahmini, emniyet stoğu yönetimi ve stratejik tesis konumu seçimi gibi öngörücü zeka çözümleriyle birleştirerek uçtan uca iş operasyonlarını otomatize eder.",
         proj_phoenix_desc: "Yenilikçi dijital çözümlere odaklanan erken aşama girişimi kuruyoruz. İlk ürünümüz 'Teklifs', online ürün satışına yeni bir bakış açısı getiriyor.",
         proj_erp_desc: "Verimli envanter yönetimi ve personel malzeme atamaları için Python ve PyQt5 ile geliştirilmiş kapsamlı bir masaüstü uygulaması.",
         proj_rapid_desc: "Afet öncesi ve sonrası analiz yapabilen İHA projesi. Afet sırasında sıcak veri aktarımı ve yapay zeka entegreli görüntü işleme. Pazar araştırması ve proje yönetimi görevleri.",
@@ -83,13 +85,13 @@ const translations = {
         contact_desc: "AI tabanlı çözümler ve süreç iyileştirme projeleri için bana ulaşabilirsiniz.",
         footer_text: "Designed by Utku Altan Özkale | Powered by AI",
 
-        opti_page_title: "OptiStock AI Demo",
+        opti_page_title: "AI-Driven ERP Ecosystem Demo",
         opti_back_link: "Projeler",
         opti_back_to_projects: "Projelere Dön",
-        opti_title: "OptiStock AI Demo",
-        opti_subtitle: "Aşağıdaki videoda OptiStock AI'nin nasıl çalıştığını inceleyebilirsiniz.",
-        opti_doc_title: "Dökümantasyon (Yakında)",
-        opti_doc_desc: "OptiStock AI hakkında detaylı kullanım kılavuzu, mimari yapı ve teknik dökümanlar buraya eklenecektir."
+        opti_title: "AI-Driven ERP Ecosystem (In Dev)",
+        opti_subtitle: "Aşağıdaki videoda ekosistemin çekirdek MRP ve optimizasyon motorunun çalışma prensiplerini inceleyebilirsiniz.",
+        opti_doc_title: "Dökümantasyon (Geliştiriliyor)",
+        opti_doc_desc: "Ekosistem mimarisi, tahmin modelleri ve teknik dökümantasyon buraya eklenecektir."
     },
     en: {
         page_title: "Utku Altan Özkale | AI-Augmented Solutions Architect",
@@ -102,8 +104,10 @@ const translations = {
         hero_hello: "Hi, I am",
         hero_role: "AI-Enhanced Solutions Architect & Industrial Engineer",
         hero_desc: "",
+        hero_cv_btn: "Download CV",
         utils_contact_btn: "Get in Touch",
 
+        nav_cv: "Download CV",
         section_about: "About Me",
         about_p1: "I am a 'Solutions Architect' who bridges the gap between traditional engineering discipline and AI-driven efficiency. By augmenting my analytical mindset and technical skills with modern AI tools, I solve industrial problems with maximum speed and minimum cost. As an ambitious engineer focused on continuous growth, I go beyond just writing code—I architect optimized processes, enhance operational efficiency, and deliver rapid, high-value digital solutions.",
         about_p2: "Core Competencies & Technologies:",
@@ -146,7 +150,7 @@ const translations = {
         job_esen_desc: "Data analysis and visualization using Python (Matplotlib, Tkinter).",
 
         section_projects: "Projects & Startups",
-        proj_optistock_desc: "An AI-powered tool providing material requirements planning (MRP) and stock optimization using machine learning and advanced simulation techniques.",
+        proj_optistock_desc: "Architecting an AI-centric modular ERP framework designed to automate end-to-end business operations. Integrates predictive engines for demand forecasting, safety stock management, and strategic facility location selection to maximize operational efficiency.",
         proj_phoenix_desc: "Building Phoenixia Soft, an early-stage startup focused on innovative digital solutions. Currently developing our first product, 'Teklifs', which brings a new perspective to online product selling.",
         proj_erp_desc: "A comprehensive desktop application built with Python and PyQt5 for efficient inventory management and employee material assignments.",
         proj_rapid_desc: "UAV project for pre- and post-disaster analysis. Real-time data transmission and AI-integrated image processing during disasters. Market research and project management duties.",
@@ -175,13 +179,13 @@ const translations = {
         contact_desc: "I am open to new projects, collaborations, job offers, or just to say hi.",
         footer_text: "Designed & Built by Utku Altan Özkale &copy; 2026",
 
-        opti_page_title: "OptiStock AI Demo",
+        opti_page_title: "AI-Driven ERP Ecosystem Demo",
         opti_back_link: "Projects",
         opti_back_to_projects: "Back to Projects",
-        opti_title: "OptiStock AI Demo",
-        opti_subtitle: "You can see how OptiStock AI works in the video below.",
-        opti_doc_title: "Documentation (Coming Soon)",
-        opti_doc_desc: "Detailed user guide, architecture, and technical documentation for OptiStock AI will be added here."
+        opti_title: "AI-Driven ERP Ecosystem (In Dev)",
+        opti_subtitle: "See the core MRP and optimization engine of the ecosystem in action below.",
+        opti_doc_title: "Documentation (Under Dev)",
+        opti_doc_desc: "Ecosystem architecture, predictive models, and technical documentation will be added here."
     }
 };
 
@@ -264,4 +268,23 @@ document.addEventListener('DOMContentLoaded', () => {
             window.reloadDocLanguage();
         }
     }
+
+    // Clickable Cards logic
+    const handleCardClick = (selector) => {
+        document.querySelectorAll(selector).forEach(card => {
+            const link = card.querySelector('a');
+            if (link) {
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', (e) => {
+                    // Don't trigger if the actual link was clicked
+                    if (e.target.tagName !== 'A' && !link.contains(e.target)) {
+                        link.click();
+                    }
+                });
+            }
+        });
+    };
+
+    handleCardClick('.project-card');
+    handleCardClick('.job-item');
 });
