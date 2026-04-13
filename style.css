@@ -6,15 +6,17 @@
     --slate: #94a3b8;
     --light-slate: #cbd5e1;
     --white: #f8fafc;
-    --green: #2dd4bf;
-    /* Modern Teal/Emerald */
-    --accent-glow: rgba(45, 212, 191, 0.15);
+    /* Neon Cyberpunk Cyan */
+    --green: #00f3ff;
+    --accent-glow: rgba(0, 243, 255, 0.2);
+    --neon-box-shadow: 0 0 15px rgba(0, 243, 255, 0.3), 0 0 30px rgba(0, 243, 255, 0.1);
 
     --font-heading: 'Inter', sans-serif;
     --font-body: 'Inter', sans-serif;
 
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --glass: rgba(15, 23, 42, 0.8);
+    --glass: rgba(10, 25, 47, 0.6);
+    --glass-border: 1px solid rgba(0, 243, 255, 0.1);
     --border-radius: 12px;
 }
 
@@ -47,12 +49,57 @@ body {
     line-height: 1.7;
     font-size: 18px;
     -webkit-font-smoothing: antialiased;
+    cursor: none; /* Custom cursor fallback */
+    overflow-x: hidden;
 }
 
-a {
+/* Custom Cursor */
+.cursor-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--green);
+    position: fixed;
+    border-radius: 50%;
+    z-index: 9999;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px var(--green);
+}
+
+.cursor-outline {
+    width: 30px;
+    height: 30px;
+    border: 1.5px solid var(--green);
+    position: fixed;
+    border-radius: 50%;
+    z-index: 9998;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s;
+}
+
+/* Particles Container */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Elevate important sections above particles */
+header, main, footer {
+    position: relative;
+    z-index: 10;
+}
+
+a, button, input {
     text-decoration: none;
     color: inherit;
     transition: var(--transition);
+    cursor: none !important;
 }
 
 ul {
@@ -97,10 +144,51 @@ header {
 
 .logo {
     color: var(--green);
-    font-size: 1.1rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
+    position: relative;
+    cursor: none;
+}
+
+.logo::before, .logo::after {
+    content: "Utku Altan Özkale";
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    color: var(--green);
+    pointer-events: none;
+}
+
+.logo:hover {
+    text-shadow: 0 0 10px var(--green);
+}
+
+.logo:hover::before {
+    animation: glitch-anim-1 0.4s infinite linear alternate-reverse;
+    opacity: 0.8;
+    left: 2px;
+    text-shadow: -1px 0 red;
+}
+
+.logo:hover::after {
+    animation: glitch-anim-2 0.4s infinite linear alternate-reverse;
+    opacity: 0.8;
+    left: -2px;
+    text-shadow: -1px 0 blue;
+}
+
+@keyframes glitch-anim-1 {
+    0% { clip-path: inset(20% 0 80% 0); }
+    50% { clip-path: inset(50% 0 10% 0); }
+    100% { clip-path: inset(80% 0 5% 0); }
+}
+@keyframes glitch-anim-2 {
+    0% { clip-path: inset(10% 0 60% 0); }
+    50% { clip-path: inset(30% 0 20% 0); }
+    100% { clip-path: inset(70% 0 15% 0); }
 }
 
 .nav-links {
@@ -217,7 +305,7 @@ section {
 .cta-button:hover {
     background: var(--accent-glow);
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px -10px var(--accent-glow);
+    box-shadow: var(--neon-box-shadow);
 }
 
 .secondary-btn {
@@ -333,9 +421,11 @@ section {
 }
 
 .job-item:hover {
-    background: rgba(30, 41, 59, 0.5);
-    border-color: rgba(45, 212, 191, 0.2);
+    background: rgba(30, 41, 59, 0.6);
+    border-color: var(--green);
     transform: translateX(5px);
+    box-shadow: var(--neon-box-shadow);
+    backdrop-filter: blur(10px);
 }
 
 .job-item h3 {
@@ -390,8 +480,9 @@ section {
 .project-card:hover {
     transform: translateY(-8px);
     border-color: var(--green);
-    box-shadow: 0 20px 40px -20px var(--accent-glow);
-    background: rgba(30, 41, 59, 0.8);
+    box-shadow: var(--neon-box-shadow);
+    background: rgba(30, 41, 59, 0.85);
+    backdrop-filter: blur(15px);
 }
 
 .project-header {

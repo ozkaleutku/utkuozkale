@@ -8,14 +8,14 @@ const translations = {
         nav_contact: "İletişim",
 
         hero_hello: "Merhaba, ben",
-        hero_role: "AI Destekli Çözüm Mimarı & Endüstri Mühendisi",
+        hero_role: "Dijital Dönüşüm & Süreç Otomasyonu Uzmanı | Endüstri Mühendisi",
         hero_desc: "",
         hero_cv_btn: "CV İndir",
         utils_contact_btn: "İletişime Geç",
 
         nav_cv: "CV İndir",
         section_about: "Hakkımda",
-        about_p1: "Klasik mühendislik disiplinini yapay zeka destekli devrimsel iş akışlarıyla birleştirerek, endüstriyel problemleri minimum maliyet ve maksimum hızla çözen bir 'Çözüm Mimarıyım'. Analitik düşünce yapımı ve teknik yetkinliklerimi modern AI araçlarıyla güçlendiriyor; işletmelerin sadece 'kodlanan' değil, 'optimize edilen' süreçlere sahip olmasını sağlıyorum. Sürekli gelişime odaklı, hırslı bir mühendis olarak; süreç iyileştirme, verimlilik artırma ve hızlı prototipleme konularında katma değer yaratıyorum.",
+        about_p1: "Dijital dönüşüm, süreç otomasyonu ve stratejik problem çözme konularında uzmanlaşmış bir Endüstri Mühendisiyim. Operasyonel verimliliği artırmak ve karmaşık iş süreçlerini hızlandırmak adına yapay zeka destekli (AI-driven) çözümler geliştirmeye odaklanıyorum.",
         about_p2: "Şu ana kadar edindiğim teknik yetkinlikler:",
 
         section_exp: "Deneyim",
@@ -35,31 +35,31 @@ const translations = {
 
         job_serdar_title: "Proje Mühendisi (Stajyer)",
         job_serdar_date: "Ekim 2025 - Haziran 2026",
-        job_serdar_desc: "AI tabanlı stok yönetim sistemini sıfırdan tasarlayıp optimize ederek geliştiriyorum.",
+        job_serdar_desc: "Makine öğrenimi algoritmaları kullanarak akıllı emniyet stoku hesaplamaları ve talep tahminleri sunan, yapay zeka destekli özel bir Malzeme İhtiyaç Planlaması (MRP) modülü tasarlıyor ve geliştiriyorum.",
 
         job_bozankaya_title: "Satın Alma Stajyeri",
         job_bozankaya_date: "Ağustos 2025 - Eylül 2025",
-        job_bozankaya_desc1: "Manuel veri girişlerini Python & AI kullanarak otomatize ettim.",
-        job_bozankaya_desc2: "Haftalık 12 saat süren iş yükünü 2 saate indirerek %83 zaman verimliliği sağladım ve insan hatalarını azalttım.",
+        job_bozankaya_desc1: "Manuel Excel süreçleri için zaman verimliliğinde %83 iyileşme sağlayan Python tabanlı bir otomasyon platformu (Pandas, Openpyxl) geliştirdim.",
+        job_bozankaya_desc2: "Tekrarlayan veri girişi ve raporlama süreçlerini otomatik boru hatlarına (pipelines) dönüştürdüm.",
 
         job_ulak_title: "ERP Solutions Developer (Intern)",
         job_ulak_date: "Temmuz 2025 - Ağustos 2025",
-        job_ulak_desc: "Kurumsal ihtiyaçlara özel, hızlı prototiplenmiş Stok ve Varlık Takip Sistemi geliştirdim.",
+        job_ulak_desc: "Kurumsal kaynaklarda gerçek zamanlı görünürlük sağlayan Python tabanlı uçtan uca Varlık ve Envanter Takip Sistemi tasarladım.",
 
         job_emge_title: "Kalite Kontrol Stajyeri",
         job_emge_date: "Ocak 2024 - Şubat 2024",
-        job_emge_desc1: "Kalite kontrol departmanında çalıştım.",
-        job_emge_desc2: "CMM makinesi ve PC-DMIS programı kullanımını öğrendim.",
+        job_emge_desc1: "CMM cihazları kullanarak hassas ölçümler ve kalite denetimleri gerçekleştirdim.",
+        job_emge_desc2: "PC-DMIS yazılımı ile endüstriyel kalite kontrol iş akışlarına hakimiyet kazandım.",
 
         job_esen_title: "Yazılım Stajyeri",
         job_esen_date: "Temmuz 2024 - Ağustos 2024",
-        job_esen_desc: "Python (Matplotlib, Tkinter) kullanarak veri analizi ve görselleştirme çalışmaları yaptım.",
+        job_esen_desc: "Matplotlib ve Tkinter kütüphanelerini kullanarak veri analizi ve görselleştirme çalışmaları yürüttüm.",
 
         section_projects: "Projeler & Girişimler",
-        proj_optistock_desc: "Yapay zeka merkezli modüler bir ERP çerçevesi. MRP ve stok optimizasyonu motorlarını; talep tahmini, emniyet stoğu yönetimi ve stratejik tesis konumu seçimi gibi öngörücü zeka çözümleriyle birleştirerek uçtan uca iş operasyonlarını otomatize eder.",
-        proj_phoenix_desc: "Yenilikçi dijital çözümlere odaklanan erken aşama girişimi kuruyoruz. İlk ürünümüz 'Teklifs', online ürün satışına yeni bir bakış açısı getiriyor.",
+        proj_optistock_desc: "Manuel iş akışlarını öngörücü zeka çözümleriyle değiştirerek, tüm iş operasyonlarını uçtan uca otomatize etmek üzere planlanmış kapsayıcı, yapay zeka merkezli bir ERP omurgası tasarlıyorum.",
+        proj_phoenix_desc: "Online perakendeye rekabetçi teklif (bidding) modeli getiren yenilikçi bir e-ticaret platformu olan Teklifs'te Kurucu Ortak ve İş Analisti olarak görev alıyorum. Regülasyon (KVKK) uyumu ve stratejik operasyon süreçlerini yönetiyorum.",
         proj_erp_desc: "Verimli envanter yönetimi ve personel malzeme atamaları için Python ve PyQt5 ile geliştirilmiş kapsamlı bir masaüstü uygulaması.",
-        proj_rapid_desc: "Afet öncesi ve sonrası analiz yapabilen İHA projesi. Afet sırasında sıcak veri aktarımı ve yapay zeka entegreli görüntü işleme. Pazar araştırması ve proje yönetimi görevleri.",
+        proj_rapid_desc: "Afet öncesi ve sonrası analiz yapabilen İHA projesi. Afet anında sıcak veri aktarımı ve yapay zeka odaklı görüntü işleme yeteneği sunar. Kapsamlı pazar araştırması ve proje planlaması süreçlerini yönettim.",
 
         section_edu: "Eğitim & Sertifikalar",
         edu_degree: "Endüstri Mühendisliği (İngilizce)",
@@ -85,10 +85,10 @@ const translations = {
         contact_desc: "AI tabanlı çözümler ve süreç iyileştirme projeleri için bana ulaşabilirsiniz.",
         footer_text: "Designed by Utku Altan Özkale | Powered by AI",
 
-        opti_page_title: "AI-Driven ERP Ecosystem Demo",
+        opti_page_title: "AIERP Demo",
         opti_back_link: "Projeler",
         opti_back_to_projects: "Projelere Dön",
-        opti_title: "AI-Driven ERP Ecosystem (In Dev)",
+        opti_title: "AIERP (In Dev)",
         opti_subtitle: "Aşağıdaki videoda ekosistemin çekirdek MRP ve optimizasyon motorunun çalışma prensiplerini inceleyebilirsiniz.",
         opti_doc_title: "Dökümantasyon (Geliştiriliyor)",
         opti_doc_desc: "Ekosistem mimarisi, tahmin modelleri ve teknik dökümantasyon buraya eklenecektir."
@@ -102,14 +102,14 @@ const translations = {
         nav_contact: "Contact",
 
         hero_hello: "Hi, I am",
-        hero_role: "AI-Enhanced Solutions Architect & Industrial Engineer",
+        hero_role: "Industrial Engineer | Digital Transformation & Process Automation",
         hero_desc: "",
         hero_cv_btn: "Download CV",
         utils_contact_btn: "Get in Touch",
 
         nav_cv: "Download CV",
         section_about: "About Me",
-        about_p1: "I am a 'Solutions Architect' who bridges the gap between traditional engineering discipline and AI-driven efficiency. By augmenting my analytical mindset and technical skills with modern AI tools, I solve industrial problems with maximum speed and minimum cost. As an ambitious engineer focused on continuous growth, I go beyond just writing code—I architect optimized processes, enhance operational efficiency, and deliver rapid, high-value digital solutions.",
+        about_p1: "I am an Industrial Engineer specializing in digital transformation, process automation, and strategic problem-solving. I am highly focused on developing AI-driven solutions to optimize operational efficiency and streamline complex business processes.",
         about_p2: "Core Competencies & Technologies:",
 
         section_exp: "Experience",
@@ -129,31 +129,31 @@ const translations = {
 
         job_serdar_title: "Project Engineer (Student)",
         job_serdar_date: "October 2025 - June 2026",
-        job_serdar_desc: "Developing, optimizing, and architecting an AI-driven stock and warehouse management system from scratch.",
+        job_serdar_desc: "Architecting and developing a custom AI/ML-powered Material Requirements Planning (MRP) module featuring intelligent safety stock calculations and predictive analytics for demand forecasting using machine learning algorithms.",
 
         job_bozankaya_title: "Purchasing Intern",
         job_bozankaya_date: "August 2025 - September 2025",
-        job_bozankaya_desc1: "Automated manual data entry workflows using Python & AI agents.",
-        job_bozankaya_desc2: "Reduced weekly workload from 12 hours to 2 hours, achieving 83% time efficiency and minimizing human error.",
+        job_bozankaya_desc1: "Developed a Python-based automation solution (Pandas, Openpyxl) for manual Excel processes, achieving an 83% improvement in time efficiency.",
+        job_bozankaya_desc2: "Transformed repetitive data entry and reporting processes into streamlined automated pipelines.",
 
         job_ulak_title: "ERP Intern",
         job_ulak_date: "July 2025 - August 2025",
-        job_ulak_desc: "Developed my own ERP Based Stock and Asset Management Tracking System (Python).",
+        job_ulak_desc: "Designed an end-to-end Asset & Inventory Tracking System using Python, establishing real-time visibility across organizational resources.",
 
         job_emge_title: "Quality Control Intern",
         job_emge_date: "January 2024 - February 2024",
-        job_emge_desc1: "Worked in the quality control department.",
-        job_emge_desc2: "Learned how to use CMM machine and the PC-DMIS program.",
+        job_emge_desc1: "Conducted precision measurements and quality inspections using CMM machines.",
+        job_emge_desc2: "Gained hands-on experience in industrial quality control workflows with PC-DMIS software.",
 
         job_esen_title: "Software Intern",
         job_esen_date: "July 2024 - August 2024",
-        job_esen_desc: "Data analysis and visualization using Python (Matplotlib, Tkinter).",
+        job_esen_desc: "Performed data analysis and visual representation using Python libraries such as Matplotlib and Tkinter.",
 
         section_projects: "Projects & Startups",
-        proj_optistock_desc: "Architecting an AI-centric modular ERP framework designed to automate end-to-end business operations. Integrates predictive engines for demand forecasting, safety stock management, and strategic facility location selection to maximize operational efficiency.",
-        proj_phoenix_desc: "Building Phoenixia Soft, an early-stage startup focused on innovative digital solutions. Currently developing our first product, 'Teklifs', which brings a new perspective to online product selling.",
+        proj_optistock_desc: "Architecting a comprehensive, AI-centric framework designed to automate end-to-end business operations by replacing manual workflows with predictive intelligence. Centralizes decision-making across all organizational functions to optimize resource allocation.",
+        proj_phoenix_desc: "Co-Founder & Business Analyst at Teklifs, an e-commerce platform that introduces a competitive bidding model to online retail. Conducting comprehensive research for operational needs and managing regulatory compliance (KVKK).",
         proj_erp_desc: "A comprehensive desktop application built with Python and PyQt5 for efficient inventory management and employee material assignments.",
-        proj_rapid_desc: "UAV project for pre- and post-disaster analysis. Real-time data transmission and AI-integrated image processing during disasters. Market research and project management duties.",
+        proj_rapid_desc: "RAPID is a UAV designed to analyze disaster zones before and after events. Transmits real-time hot data during disasters and performs AI-integrated image processing. Conducted comprehensive market research, stakeholder coordination, and project roadmap development.",
 
         section_edu: "Education & Certificates",
         edu_degree: "Industrial Engineering (English)",
@@ -179,10 +179,10 @@ const translations = {
         contact_desc: "I am open to new projects, collaborations, job offers, or just to say hi.",
         footer_text: "Designed & Built by Utku Altan Özkale &copy; 2026",
 
-        opti_page_title: "AI-Driven ERP Ecosystem Demo",
+        opti_page_title: "AIERP Demo",
         opti_back_link: "Projects",
         opti_back_to_projects: "Back to Projects",
-        opti_title: "AI-Driven ERP Ecosystem (In Dev)",
+        opti_title: "AIERP (In Dev)",
         opti_subtitle: "See the core MRP and optimization engine of the ecosystem in action below.",
         opti_doc_title: "Documentation (Under Dev)",
         opti_doc_desc: "Ecosystem architecture, predictive models, and technical documentation will be added here."
@@ -287,4 +287,98 @@ document.addEventListener('DOMContentLoaded', () => {
 
     handleCardClick('.project-card');
     handleCardClick('.job-item');
+
+    // --- Typing Animation for Hero Title ---
+    const titleEl = document.querySelector('.hero-content .title');
+    if (titleEl) {
+        // Only run if not already set (reloading languages might mess it up otherwise, but text is static here)
+        const text = "Utku Altan Özkale.";
+        titleEl.textContent = '';
+        let i = 0;
+        const typeWriter = () => {
+            if (i < text.length) {
+                titleEl.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        };
+        setTimeout(typeWriter, 500);
+    }
+
+    // --- Custom Cursor Logic ---
+    const dot = document.querySelector('.cursor-dot');
+    const outline = document.querySelector('.cursor-outline');
+
+    if (dot && outline) {
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+            
+            dot.style.left = `${posX}px`;
+            dot.style.top = `${posY}px`;
+
+            if (typeof gsap !== 'undefined') {
+                gsap.to(outline, {
+                    left: posX,
+                    top: posY,
+                    duration: 0.15,
+                    ease: "power2.out"
+                });
+            } else {
+                outline.style.left = `${posX}px`;
+                outline.style.top = `${posY}px`;
+            }
+        });
+
+        const interactables = document.querySelectorAll('a, button, input, .project-card, .job-item, .lang-btn');
+        interactables.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                if (typeof gsap !== 'undefined') {
+                    gsap.to(outline, {
+                        scale: 1.5,
+                        backgroundColor: 'rgba(0, 243, 255, 0.1)',
+                        duration: 0.3
+                    });
+                }
+            });
+            link.addEventListener('mouseleave', () => {
+                if (typeof gsap !== 'undefined') {
+                    gsap.to(outline, {
+                        scale: 1,
+                        backgroundColor: 'transparent',
+                        duration: 0.3
+                    });
+                }
+            });
+        });
+    }
+
+    // --- Particles.js Configuration ---
+    if (window.particlesJS) {
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 50, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#00f3ff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.3, "random": false },
+                "size": { "value": 2, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#00f3ff", "opacity": 0.2, "width": 1 },
+                "move": { "enable": true, "speed": 1.5, "direction": "none", "random": true, "out_mode": "out" }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": { "distance": 140, "line_linked": { "opacity": 0.8 } },
+                    "push": { "particles_nb": 3 }
+                }
+            },
+            "retina_detect": true
+        });
+    }
+
 });

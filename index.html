@@ -14,6 +14,12 @@
 </head>
 
 <body>
+    <!-- Futuristic Cursor Elements -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Particles Background Container -->
+    <div id="particles-js"></div>
     <header>
         <nav class="navbar">
             <div class="logo">Utku Altan Özkale</div>
@@ -21,7 +27,7 @@
                 <li><a href="#about" data-i18n="nav_about">Hakkımda</a></li>
                 <li><a href="#experience" data-i18n="nav_exp">Deneyim</a></li>
                 <li><a href="#projects" data-i18n="nav_projects">Projeler</a></li>
-                <li><a href="UtkuAltanOzkale_ATS.pdf" download data-i18n="nav_cv">CV İndir</a></li>
+                <li><a href="UtkuAltanOzkaleCV_ATS2.pdf" download data-i18n="nav_cv">CV İndir</a></li>
                 <li><a href="#education" data-i18n="nav_edu">Eğitim</a></li>
                 <li><a href="#contact" data-i18n="nav_contact">İletişim</a></li>
                 <li>
@@ -44,7 +50,7 @@
 
                 <div class="hero-buttons">
                     <a href="#contact" class="cta-button" data-i18n="utils_contact_btn">İletişime Geç</a>
-                    <a href="UtkuAltanOzkale_ATS.pdf" download class="cta-button secondary-btn"
+                    <a href="UtkuAltanOzkaleCV_ATS2.pdf" download class="cta-button secondary-btn"
                         data-i18n="hero_cv_btn">CV İndir</a>
                     <a href="https://www.linkedin.com/in/utku-altan-özkale-542a91227/" target="_blank"
                         class="social-icon"><i data-feather="linkedin"></i></a>
@@ -106,8 +112,8 @@
                 <!-- Serdar Plastik -->
                 <div class="job-item">
                     <h3><span data-i18n="job_serdar_title">Project Engineer (Student)</span> <span class="company">@ <a
-                                href="http://www.serdar-plastik.com" target="_blank">Serdar Plastik San. ve Tic.
-                                A.Ş.</a></span></h3>
+                                href="serdar_demo/index.html" target="_blank" title="Uygulama Demosu İçin Tıklayın">Serdar Plastik
+                                (Demo &rarr;)</a></span></h3>
                     <p class="range" data-i18n="job_serdar_date">Ekim 2025 - Haziran 2026</p>
                     <ul class="job-details">
                         <li data-i18n="job_serdar_desc">AI/ML tabanlı stok ve depo yönetim sistemi geliştiriyorum.</li>
@@ -177,7 +183,7 @@
                             <a href="optistock.html"><i data-feather="external-link"></i></a>
                         </div>
                     </div>
-                    <h3 class="project-title">AI-Driven ERP Ecosystem (In Dev)</h3>
+                    <h3 class="project-title">AIERP (In Dev)</h3>
                     <p class="project-desc" data-i18n="proj_optistock_desc">
                         Yapay zeka, makine öğrenimi ve gelişmiş simülasyon teknikleri ile malzeme ihtiyaç planlaması
                         (MRP) ve stok optimizasyonu sağlayan araç.
@@ -189,16 +195,16 @@
                     </ul>
                 </div>
 
-                <!-- PhoenixiaSoft -->
+                <!-- Teklifs -->
                 <div class="project-card">
                     <div class="project-header">
                         <i data-feather="monitor" class="folder-icon"></i>
                         <div class="project-links">
-                            <a href="https://www.phoenixiasoft.com" target="_blank"><i
+                            <a href="https://www.teklifs.com" target="_blank"><i
                                     data-feather="external-link"></i></a>
                         </div>
                     </div>
-                    <h3 class="project-title">PhoenixiaSoft</h3>
+                    <h3 class="project-title">Teklifs</h3>
                     <p class="project-desc" data-i18n="proj_phoenix_desc">
                         Yenilikçi dijital çözümlere odaklanan erken aşama girişimi kuruyoruz.
                         İlk ürünümüz "Teklifs", online ürün satışına yeni bir bakış açısı getiriyor.
@@ -335,7 +341,9 @@
         <p data-i18n="footer_text">Tasarım ve Kodlama: Utku Altan Özkale &copy; 2026</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js?v=1.1"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script>
         feather.replace();
     </script>
