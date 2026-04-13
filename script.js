@@ -353,31 +353,61 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Particles.js Configuration ---
-    if (window.particlesJS) {
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 50, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#00f3ff" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.3, "random": false },
-                "size": { "value": 2, "random": true },
-                "line_linked": { "enable": true, "distance": 150, "color": "#00f3ff", "opacity": 0.2, "width": 1 },
-                "move": { "enable": true, "speed": 1.5, "direction": "none", "random": true, "out_mode": "out" }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": { "enable": true, "mode": "grab" },
-                    "onclick": { "enable": true, "mode": "push" },
-                    "resize": true
+    // --- Vanilla Tilt Initialization ---
+    if (typeof VanillaTilt !== 'undefined') {
+        VanillaTilt.init(document.querySelectorAll(".job-item, .project-card, .edu-item, .contact-content, .skills-list"), {
+            max: 5,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.1,
+            scale: 1.02
+        });
+    }
+
+    // --- GSAP ScrollTrigger Initializations ---
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+        
+        gsap.utils.toArray('.reveal').forEach((section) => {
+            gsap.from(section, {
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 80%",
+                    toggleActions: "play none none reverse"
                 },
-                "modes": {
-                    "grab": { "distance": 140, "line_linked": { "opacity": 0.8 } },
-                    "push": { "particles_nb": 3 }
-                }
-            },
-            "retina_detect": true
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out"
+            });
+        });
+
+        gsap.utils.toArray('.projects-grid').forEach(grid => {
+            gsap.from(grid.querySelectorAll('.project-card'), {
+                scrollTrigger: {
+                    trigger: grid,
+                    start: "top 85%",
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.15,
+                ease: "power2.out"
+            });
+        });
+
+        gsap.utils.toArray('.jobs-tabs').forEach(grid => {
+            gsap.from(grid.querySelectorAll('.job-item'), {
+                scrollTrigger: {
+                    trigger: grid,
+                    start: "top 85%",
+                },
+                y: 30,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.15,
+                ease: "power2.out"
+            });
         });
     }
 
