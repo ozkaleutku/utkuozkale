@@ -1,28 +1,28 @@
 /* Base Styles & Variables */
 :root {
-    --navy: #020617; /* Even darker, pure modern dark mode */
-    --light-navy: #0f172a;
-    --lightest-navy: #1e293b;
-    --slate: #94a3b8;
-    --light-slate: #f8fafc;
-    --white: #ffffff;
+    --navy: #f8fafc; /* Off-white minimal background */
+    --light-navy: #ffffff; /* Clean white cards */
+    --lightest-navy: #f1f5f9; /* Soft separators */
+    --slate: #475569; /* Soft text for readability */
+    --light-slate: #0f172a; /* Main Headings */
+    --white: #0f172a; /* Inverted for highest contrast text */
     
-    /* Neon Cyberpunk Cyan & Purple for blobs */
-    --green: #00e5ff;
-    --purple: #8b5cf6;
-    --accent-glow: rgba(0, 229, 255, 0.4);
-    --neon-box-shadow: 0 0 20px rgba(0, 229, 255, 0.1), 0 0 40px rgba(139, 92, 246, 0.1);
+    /* Elegant Pastel Accents */
+    --green: #2563eb; /* Royal Blue accent instead of neon cyan */
+    --purple: #0ea5e9; /* Sky blue gradient accent */
+    --accent-glow: rgba(37, 99, 235, 0.05);
+    --neon-box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
 
     --font-heading: 'Inter', sans-serif;
     --font-body: 'Inter', sans-serif;
 
     --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     
-    /* Premium Glassmorphism */
-    --glass-bg: rgba(15, 23, 42, 0.4);
-    --glass-border: 1px solid rgba(255, 255, 255, 0.08);
-    --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    --border-radius: 16px;
+    /* Clean Frosted Glass for Light Mode */
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --glass-border: 1px solid rgba(15, 23, 42, 0.05);
+    --glass-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+    --border-radius: 24px;
 }
 
 @keyframes fadeInUp {
@@ -99,15 +99,15 @@ body {
     position: absolute;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
+    background: radial-gradient(circle, rgba(37,99,235,0.1) 0%, transparent 60%);
     border-radius: 50%;
     filter: blur(80px);
-    opacity: 0.6;
+    opacity: 0.8;
     animation: moveOrbs 20s infinite alternate ease-in-out;
 }
 
 .blob-1 { top: -10%; left: -10%; }
-.blob-2 { bottom: -20%; right: -10%; background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 60%); animation-delay: -5s; }
+.blob-2 { bottom: -20%; right: -10%; background: radial-gradient(circle, rgba(14,165,233,0.1) 0%, transparent 60%); animation-delay: -5s; }
 .blob-3 { top: 40%; left: 50%; width: 500px; height: 500px; animation-duration: 25s; }
 
 @keyframes moveOrbs {
@@ -115,13 +115,13 @@ body {
     100% { transform: translate(100px, 150px) scale(1.2); }
 }
 
-/* Noise overlay for texture */
+/* Noise overlay */
 .bg-noise {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
     pointer-events: none;
     z-index: -1;
-    opacity: 0.05;
+    opacity: 0.02;
     background: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
 }
 
@@ -171,7 +171,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
-    background: rgba(2, 6, 23, 0.7);
+    background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: var(--glass-border);
@@ -179,41 +179,22 @@ header {
 }
 
 .logo {
-    color: var(--green);
+    color: var(--light-slate);
     font-size: 1.2rem;
     font-weight: 800;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
     position: relative;
     cursor: none;
 }
 
 .logo::before, .logo::after {
-    content: "Utku Altan Özkale";
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    color: var(--green);
-    pointer-events: none;
+    display: none;
 }
 
 .logo:hover {
-    text-shadow: 0 0 10px var(--green);
-}
-
-.logo:hover::before {
-    animation: glitch-anim-1 0.4s infinite linear alternate-reverse;
-    opacity: 0.8;
-    left: 2px;
-    text-shadow: -1px 0 red;
-}
-
-.logo:hover::after {
-    animation: glitch-anim-2 0.4s infinite linear alternate-reverse;
-    opacity: 0.8;
-    left: -2px;
-    text-shadow: -1px 0 blue;
+    text-shadow: none;
+    color: var(--green);
 }
 
 @keyframes glitch-anim-1 {
@@ -328,33 +309,38 @@ section {
 }
 
 .cta-button {
-    color: var(--green);
-    border: 1.5px solid var(--green);
-    border-radius: var(--border-radius);
-    padding: 0.9rem 2rem;
-    font-size: 0.95rem;
+    color: #ffffff;
+    background-color: var(--green);
+    border: none;
+    padding: 1.25rem 2rem;
     font-weight: 600;
-    letter-spacing: 0.02em;
+    font-size: 1rem;
+    transition: var(--transition);
+    border-radius: var(--border-radius);
     display: inline-block;
+    box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4);
 }
 
 .cta-button:hover {
-    background: var(--accent-glow);
+    background: #1d4ed8;
     transform: translateY(-2px);
-    box-shadow: var(--neon-box-shadow);
+    box-shadow: 0 15px 25px -5px rgba(37, 99, 235, 0.5);
 }
 
 .secondary-btn {
-    background: transparent;
-    transition: var(--transition);
+    background-color: transparent;
+    color: var(--green);
+    border: 1px solid var(--green);
+    box-shadow: none;
 }
 
 .secondary-btn:hover {
-    background: rgba(100, 255, 218, 0.1);
+    background: var(--accent-glow);
+    box-shadow: none;
 }
 
 .social-icon {
-    color: var(--light-slate);
+    color: var(--slate);
     transition: var(--transition);
 }
 
@@ -502,19 +488,11 @@ section {
     font-weight: 500;
 }
 
-.job-details li {
-    position: relative;
-    padding-left: 1.5rem;
-    margin-bottom: 0.75rem;
+.job-desc {
     color: var(--slate);
     font-size: 0.95rem;
-}
-
-.job-details li::before {
-    content: "▹";
-    position: absolute;
-    left: 0;
-    color: var(--green);
+    line-height: 1.7;
+    margin-top: 10px;
 }
 
 /* Projects Grid */
