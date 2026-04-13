@@ -54,7 +54,7 @@ const translations = {
         job_esen_desc: "ESEN Sistem'de yer alan veri yığınlarını işlemek ve yöneticiler için karar destek mekanizmaları kurmak amacıyla Python (Matplotlib & Tkinter) ile interaktif analiz arayüzleri yarattım.",
 
         section_projects: "Yenilikçi Projeler & Girişimler",
-        proj_optistock_desc: "Manuel iş akışlarını öngörücü zeka çözümleriyle değiştirerek, tüm iş operasyonlarını otonomlaştıran kapsayıcı, yapay zeka merkezli bir ERP omurgası tasarlıyorum.",
+        proj_aierp_desc: "Manuel iş akışlarını öngörücü zeka çözümleriyle değiştirerek, tüm iş operasyonlarını otonomlaştıran kapsayıcı, yapay zeka merkezli bir ERP omurgası tasarlıyorum.",
         proj_phoenix_desc: "Online perakendeye rekabetçi teklif (bidding) modeli getiren yenilikçi e-ticaret platformu Teklifs'te Kurucu Ortak olarak yer alıyorum.",
         proj_erp_desc: "Verimli envanter yönetimi ve personel malzeme atamaları için Python ve PyQt5 ile geliştirilmiş kapsamlı bir masaüstü uygulaması.",
         proj_rapid_desc: "Afet öncesi ve sonrası analiz yapabilen İHA projesi. Afet anında sıcak veri aktarımı ve yapay zeka odaklı görüntü işleme yeteneği sunar. Kapsamlı pazar araştırması ve proje planlaması süreçlerini yönettim.",
@@ -146,7 +146,7 @@ const translations = {
         job_esen_desc: "Developed interactive analysis models using Python (Matplotlib & Tkinter) to process raw data sets into actionable dashboards, providing key decision-support for management.",
 
         section_projects: "Innovative Products & Startups",
-        proj_optistock_desc: "Architecting a comprehensive, AI-centric framework designed to autonomously manage enterprise operations by replacing manual workflows with predictive intelligence.",
+        proj_aierp_desc: "Architecting a comprehensive, AI-centric framework designed to autonomously manage enterprise operations by replacing manual workflows with predictive intelligence.",
         proj_phoenix_desc: "Co-Founder of Teklifs, an e-commerce platform that introduces a competitive bidding pricing model to online retail.",
         proj_erp_desc: "A comprehensive desktop application built with Python and PyQt5 for efficient inventory management and employee material assignments.",
         proj_rapid_desc: "RAPID is a UAV designed to analyze disaster zones before and after events. Transmits real-time hot data during disasters and performs AI-integrated image processing. Conducted comprehensive market research, stakeholder coordination, and project roadmap development.",
@@ -301,61 +301,15 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(typeWriter, 500);
     }
 
-    // --- Custom Cursor Logic ---
-    const dot = document.querySelector('.cursor-dot');
-    const outline = document.querySelector('.cursor-outline');
-
-    if (dot && outline) {
-        window.addEventListener('mousemove', (e) => {
-            const posX = e.clientX;
-            const posY = e.clientY;
-            
-            dot.style.left = `${posX}px`;
-            dot.style.top = `${posY}px`;
-
-            if (typeof gsap !== 'undefined') {
-                gsap.to(outline, {
-                    left: posX,
-                    top: posY,
-                    duration: 0.15,
-                    ease: "power2.out"
-                });
-            } else {
-                outline.style.left = `${posX}px`;
-                outline.style.top = `${posY}px`;
-            }
-        });
-
-        const interactables = document.querySelectorAll('a, button, input, .project-card, .job-item, .lang-btn');
-        interactables.forEach(link => {
-            link.addEventListener('mouseenter', () => {
-                if (typeof gsap !== 'undefined') {
-                    gsap.to(outline, {
-                        scale: 1.5,
-                        backgroundColor: 'rgba(0, 243, 255, 0.1)',
-                        duration: 0.3
-                    });
-                }
-            });
-            link.addEventListener('mouseleave', () => {
-                if (typeof gsap !== 'undefined') {
-                    gsap.to(outline, {
-                        scale: 1,
-                        backgroundColor: 'transparent',
-                        duration: 0.3
-                    });
-                }
-            });
-        });
-    }
+    // --- Custom Cursor Logic Removed ---
 
     // --- Vanilla Tilt Initialization ---
     if (typeof VanillaTilt !== 'undefined') {
-        VanillaTilt.init(document.querySelectorAll(".job-item, .project-card, .edu-item, .contact-content, .skills-list"), {
+        VanillaTilt.init(document.querySelectorAll(".work-visual, .contact-content, .skills-list"), {
             max: 5,
             speed: 400,
             glare: true,
-            "max-glare": 0.1,
+            "max-glare": 0.05,
             scale: 1.02
         });
     }
@@ -378,8 +332,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        gsap.utils.toArray('.projects-grid').forEach(grid => {
-            gsap.from(grid.querySelectorAll('.project-card'), {
+        gsap.utils.toArray('.works-container').forEach(grid => {
+            gsap.from(grid.querySelectorAll('.work-showcase'), {
                 scrollTrigger: {
                     trigger: grid,
                     start: "top 85%",
@@ -387,21 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 y: 50,
                 opacity: 0,
                 duration: 0.8,
-                stagger: 0.15,
-                ease: "power2.out"
-            });
-        });
-
-        gsap.utils.toArray('.jobs-tabs').forEach(grid => {
-            gsap.from(grid.querySelectorAll('.job-item'), {
-                scrollTrigger: {
-                    trigger: grid,
-                    start: "top 85%",
-                },
-                y: 30,
-                opacity: 0,
-                duration: 0.8,
-                stagger: 0.15,
+                stagger: 0.2,
                 ease: "power2.out"
             });
         });

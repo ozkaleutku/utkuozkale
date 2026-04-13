@@ -14,9 +14,7 @@
 </head>
 
 <body>
-    <!-- Futuristic Cursor Elements -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
+    <!-- Standard Cursor restored -->
 
     <!-- Cinematic Background Orbs -->
     <div class="bg-blobs">
@@ -30,10 +28,8 @@
             <div class="logo">Utku Altan Özkale</div>
             <ul class="nav-links">
                 <li><a href="#about" data-i18n="nav_about">Hakkımda</a></li>
-                <li><a href="#experience" data-i18n="nav_exp">Deneyim</a></li>
-                <li><a href="#projects" data-i18n="nav_projects">Projeler</a></li>
+                <li><a href="#works" data-i18n="nav_projects">Selected Works</a></li>
                 <li><a href="UtkuAltanOzkaleCV_ATS2.pdf" download data-i18n="nav_cv">CV İndir</a></li>
-                <li><a href="#education" data-i18n="nav_edu">Eğitim</a></li>
                 <li><a href="#contact" data-i18n="nav_contact">İletişim</a></li>
                 <li>
                     <button id="lang-toggle" class="lang-btn">EN</button>
@@ -108,200 +104,66 @@
             </div>
         </section>
 
-        <!-- Experience Section -->
-        <section id="experience" class="section reveal">
-            <h2 class="section-title"><span data-i18n="num_02">02.</span> <span data-i18n="section_exp">Deneyim</span>
-            </h2>
-            <div class="jobs-tabs">
+        <!-- Selected Works Section -->
+        <section id="works" class="section reveal">
+            <h2 class="section-title"><span data-i18n="num_02">02.</span> <span data-i18n="section_projects">Öne Çıkan İşler</span></h2>
+            <div class="works-container">
 
-                <!-- Serdar Plastik -->
-                <div class="job-item">
-                    <h3><span data-i18n="job_serdar_title">Project Engineer (Student)</span> <span class="company">@ <a
-                                href="serdar_demo/index.html" target="_blank" title="Uygulama Demosu İçin Tıklayın">Serdar Plastik
-                                (Demo &rarr;)</a></span></h3>
-                    <p class="range" data-i18n="job_serdar_date">Ekim 2025 - Haziran 2026</p>
-                    <p class="job-desc" data-i18n="job_serdar_desc"></p>
-                </div>
-
-                <!-- Bozankaya -->
-                <div class="job-item">
-                    <h3><span data-i18n="job_bozankaya_title">Purchasing Intern</span> <span class="company">@ <a
-                                href="https://www.bozankaya.com.tr/" target="_blank">Bozankaya A.Ş.</a></span></h3>
-                    <p class="range" data-i18n="job_bozankaya_date">Ağustos 2025 - Eylül 2025</p>
-                    <p class="job-desc" data-i18n="job_bozankaya_desc"></p>
-                </div>
-
-                <!-- ULAK -->
-                <div class="job-item">
-                    <h3><span data-i18n="job_ulak_title">ERP Intern</span> <span class="company">@ <a
-                                href="https://www.ulakhaberlesme.com.tr" target="_blank">ULAK Haberleşme A.Ş.</a></span>
-                    </h3>
-                    <p class="range" data-i18n="job_ulak_date">Temmuz 2025 - Ağustos 2025</p>
-                    <p class="job-desc" data-i18n="job_ulak_desc"></p>
-                </div>
-
-                <!-- ESEN -->
-                <div class="job-item">
-                    <h3><span data-i18n="job_esen_title">Software Intern</span> <span class="company">@ <a
-                                href="https://www.esensi.com.tr" target="_blank">ESEN Sistem Entegrasyon</a></span></h3>
-                    <p class="range" data-i18n="job_esen_date">Temmuz 2024 - Ağustos 2024</p>
-                    <p class="job-desc" data-i18n="job_esen_desc"></p>
-                </div>
-
-                <!-- EMGE -->
-                <div class="job-item">
-                    <h3><span data-i18n="job_emge_title">Quality Control Intern</span> <span class="company">@ <a
-                                href="https://www.emge.com.tr" target="_blank">EMGE A.Ş.</a></span></h3>
-                    <p class="range" data-i18n="job_emge_date">Ocak 2024 - Şubat 2024</p>
-                    <p class="job-desc" data-i18n="job_emge_desc"></p>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="section reveal">
-            <h2 class="section-title"><span data-i18n="num_03">03.</span> <span data-i18n="section_projects">Projeler &
-                    Girişimler</span></h2>
-            <div class="projects-grid">
-
-                <!-- OptiStock AI -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <i data-feather="cpu" class="folder-icon"></i>
-                        <div class="project-links">
-                            <a href="optistock.html"><i data-feather="external-link"></i></a>
-                        </div>
+                <!-- AI-MRP (Serdar Plastik) -->
+                <div class="work-showcase">
+                    <div class="work-visual">
+                        <i data-feather="box" class="massive-icon"></i>
                     </div>
-                    <h3 class="project-title">AIERP (In Dev)</h3>
-                    <p class="project-desc" data-i18n="proj_optistock_desc">
-                        Yapay zeka, makine öğrenimi ve gelişmiş simülasyon teknikleri ile malzeme ihtiyaç planlaması
-                        (MRP) ve stok optimizasyonu sağlayan araç.
-                    </p>
-                    <ul class="project-tech">
-                        <li>AI</li>
-                        <li>MRP</li>
-                        <li>Optimization</li>
-                    </ul>
+                    <div class="work-info">
+                        <p class="work-subtitle">Serdar Plastik</p>
+                        <h3 class="work-title">AI-MRP Engine</h3>
+                        <p class="job-desc" data-i18n="job_serdar_desc"></p>
+                        <div class="work-tech"><span>Machine Learning</span><span>Forecasting</span><span>Vite/React</span></div>
+                        <a href="serdar_demo/index.html" target="_blank" class="work-link">Live Prototype &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- AIERP -->
+                <div class="work-showcase">
+                    <div class="work-visual">
+                        <i data-feather="cpu" class="massive-icon"></i>
+                    </div>
+                    <div class="work-info">
+                        <p class="work-subtitle">Independent Architecture</p>
+                        <h3 class="work-title">AIERP Ecosystem</h3>
+                        <p class="job-desc" data-i18n="proj_aierp_desc"></p>
+                        <div class="work-tech"><span>AI</span><span>ERP</span><span>Optimization</span></div>
+                        <a href="aierp.html" class="work-link">View Documentation &rarr;</a>
+                    </div>
                 </div>
 
                 <!-- Teklifs -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <i data-feather="monitor" class="folder-icon"></i>
-                        <div class="project-links">
-                            <a href="https://www.teklifs.com" target="_blank"><i
-                                    data-feather="external-link"></i></a>
-                        </div>
+                <div class="work-showcase">
+                    <div class="work-visual">
+                        <i data-feather="shopping-bag" class="massive-icon"></i>
                     </div>
-                    <h3 class="project-title">Teklifs</h3>
-                    <p class="project-desc" data-i18n="proj_phoenix_desc">
-                        Yenilikçi dijital çözümlere odaklanan erken aşama girişimi kuruyoruz.
-                        İlk ürünümüz "Teklifs", online ürün satışına yeni bir bakış açısı getiriyor.
-                    </p>
-                    <ul class="project-tech">
-                        <li>Startup</li>
-                        <li>Digital Solutions</li>
-                    </ul>
-                </div>
-
-                <!-- ERP APP -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <i data-feather="folder" class="folder-icon"></i>
-                        <div class="project-links">
-                            <a href="https://github.com/ozkaleutku/ERP-APP" target="_blank"><i
-                                    data-feather="github"></i></a>
-                        </div>
+                    <div class="work-info">
+                        <p class="work-subtitle">Startup (Co-Founder)</p>
+                        <h3 class="work-title">Teklifs Bidding Platform</h3>
+                        <p class="job-desc" data-i18n="proj_phoenix_desc"></p>
+                        <div class="work-tech"><span>Startup</span><span>E-Commerce</span><span>Business Analysis</span></div>
+                        <a href="https://www.teklifs.com" target="_blank" class="work-link">Visit Startup &rarr;</a>
                     </div>
-                    <h3 class="project-title">ERP APP</h3>
-                    <p class="project-desc" data-i18n="proj_erp_desc">
-                        Verimli envanter yönetimi ve personel malzeme atamaları için Python ve PyQt5 ile geliştirilmiş
-                        kapsamlı bir masaüstü uygulaması.
-                    </p>
-                    <ul class="project-tech">
-                        <li>Python</li>
-                        <li>PyQt5</li>
-                        <li>Desktop App</li>
-                    </ul>
                 </div>
 
-                <!-- RAPID -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <i data-feather="cpu" class="folder-icon"></i>
+                <!-- Bozankaya Automations -->
+                <div class="work-showcase">
+                    <div class="work-visual">
+                        <i data-feather="layers" class="massive-icon"></i>
                     </div>
-                    <h3 class="project-title">RAPID (Neostellar)</h3>
-                    <p class="project-desc" data-i18n="proj_rapid_desc">
-                        Afet öncesi ve sonrası analiz yapabilen İHA projesi. Afet sırasında sıcak veri aktarımı ve yapay
-                        zeka entegreli görüntü işleme.
-                        Pazar araştırması ve proje yönetimi görevleri.
-                    </p>
-                    <ul class="project-tech">
-                        <li>Startup</li>
-                        <li>UAV</li>
-                        <li>AI</li>
-                        <li>Project Management</li>
-                    </ul>
+                    <div class="work-info">
+                        <p class="work-subtitle">Bozankaya A.Ş.</p>
+                        <h3 class="work-title">Data Pipeline Automation</h3>
+                        <p class="job-desc" data-i18n="job_bozankaya_desc"></p>
+                        <div class="work-tech"><span>Python</span><span>Pandas</span><span>Workflow Automation</span></div>
+                    </div>
                 </div>
 
-            </div>
-        </section>
-
-        <!-- Education & Certificates Section -->
-        <section id="education" class="section reveal">
-            <h2 class="section-title"><span data-i18n="num_04">04.</span> <span data-i18n="section_edu">Eğitim &
-                    Sertifikalar</span></h2>
-            <div class="education-content">
-                <div class="edu-item">
-                    <h3><a href="https://www.cankaya.edu.tr/" target="_blank" class="uni-link">Çankaya Üniversitesi</a>
-                    </h3>
-                    <p class="edu-degree" data-i18n="edu_degree">Endüstri Mühendisliği (İngilizce)</p>
-                    <p class="edu-date" data-i18n="edu_date">Eylül 2021 - Haziran 2026</p>
-                </div>
-
-                <div class="certs-container">
-                    <h3 data-i18n="certs_title">Sertifikalar</h3>
-                    <ul class="cert-list">
-                        <li>
-                            <a href="https://www.credly.com/badges/dfa2c97f-72b9-4dbe-aecd-ca71278d3ccf/linked_in_profile"
-                                target="_blank" data-i18n="cert_ethical">Ethical Hacker (Cisco)</a>
-                        </li>
-                        <li>
-                            <a href="https://www.credly.com/badges/bbbd4eb1-143c-4174-ad90-4e67c3ddc786/linked_in_profile"
-                                target="_blank" data-i18n="cert_mckinsey">McKinsey.org Forward Program</a>
-                        </li>
-                        <li>
-                            <a href="https://www.credly.com/badges/ba205246-bb5a-46fd-97c2-42840db9bb0e/linked_in_profile"
-                                target="_blank" data-i18n="cert_intro_cyber">Introduction to Cybersecurity (Cisco)</a>
-                        </li>
-                        <li>
-                            <a href="https://www.credly.com/badges/ef821745-19e7-41f3-9e56-eec38f7bf3e6/linked_in_profile"
-                                target="_blank" data-i18n="cert_net_basics">Networking Basics (Cisco)</a>
-                        </li>
-                        <li>
-                            <a href="https://www.credly.com/badges/de326170-c7e1-4cd4-8a8a-861d86ab62d7/linked_in_profile"
-                                target="_blank" data-i18n="cert_py_ess2">Python Essentials 2 (Cisco)</a>
-                        </li>
-                        <li data-i18n="cert_dia">DİA ERP ve İş Süreçleri Eğitimi (Çankaya Üni, 2025)</li>
-                        <li data-i18n="cert_btk_py">Sıfırdan İleri Seviye Python Programlama (BTK Akademi, 2025)</li>
-                        <li data-i18n="cert_iso">ISO 9001:2015 Fundamental Quality Management Systems (Acadezone, 2025)
-                        </li>
-                        <li data-i18n="cert_ml_summer">Yapay Öğrenme Yaz Okulu (Bilim Akademisi/ODTÜ, 2024)</li>
-                        <li data-i18n="cert_btk_cyber">Siber Güvenliğe Giriş (BTK Akademi, 2023)</li>
-                        <li>
-                            <a href="https://www.coursera.org/account/accomplishments/verify/6PGZ3ZZ7IPMH"
-                                target="_blank" data-i18n="cert_ai_everyone">AI For Everyone (Coursera)</a>
-                        </li>
-                        <li>
-                            <a href="https://toptalent.co/businessschool/verify/7CB7802CF8-7CB77FDCE6-7C9F7A4402/"
-                                target="_blank" data-i18n="cert_borusan">Borusan Teknoloji Okulu (Toptalent, 2023)</a>
-                        </li>
-                        <li data-i18n="cert_ccna">Cisco CCNAv7: Bridging Certificate (2022)</li>
-                        <li data-i18n="cert_acadezone_sem">Seminar on Recent Advances in Aerospace & Defense (Acadezone,
-                            2025)</li>
-                    </ul>
-                </div>
             </div>
         </section>
 

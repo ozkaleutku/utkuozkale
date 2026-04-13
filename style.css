@@ -54,34 +54,11 @@ body {
     line-height: 1.7;
     font-size: 18px;
     -webkit-font-smoothing: antialiased;
-    cursor: none; /* Custom cursor fallback */
     overflow-x: hidden;
 }
 
 /* Custom Cursor */
-.cursor-dot {
-    width: 6px;
-    height: 6px;
-    background-color: var(--green);
-    position: fixed;
-    border-radius: 50%;
-    z-index: 9999;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 10px var(--green);
-}
-
-.cursor-outline {
-    width: 30px;
-    height: 30px;
-    border: 1.5px solid var(--green);
-    position: fixed;
-    border-radius: 50%;
-    z-index: 9998;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    transition: width 0.2s, height 0.2s;
-}
+/* Custom Cursor Removed */
 
 /* Particles Container Removed */
 
@@ -135,7 +112,6 @@ a, button, input {
     text-decoration: none;
     color: inherit;
     transition: var(--transition);
-    cursor: none !important;
 }
 
 ul {
@@ -185,7 +161,6 @@ header {
     letter-spacing: 0.02em;
     text-transform: uppercase;
     position: relative;
-    cursor: none;
 }
 
 .logo::before, .logo::after {
@@ -432,220 +407,147 @@ section {
 }
 
 
-/* Experience Tab / Grid */
-.jobs-tabs {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 24px;
-    margin-top: 40px;
-}
-
-.job-item {
-    background: var(--glass-bg);
-    border: var(--glass-border);
-    border-radius: var(--border-radius);
-    padding: 30px;
-    box-shadow: var(--glass-shadow);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Accent Line Top */
-.job-item::before {
-    content: '';
-    position: absolute;
-    top: 0; right: 0; left: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--green), transparent);
-    opacity: 0;
-    transition: var(--transition);
-}
-
-.job-item:hover::before {
-    opacity: 1;
-}
-
-.job-item:hover {
-    border-color: rgba(0, 229, 255, 0.3);
-    box-shadow: var(--neon-box-shadow);
-    background: rgba(30, 41, 59, 0.4);
-}
-
-.job-item h3 {
-    color: var(--white);
-    font-size: 1.25rem;
-    font-weight: 700;
-}
-
-.job-item .range {
-    font-family: ui-monospace, monospace;
-    font-size: 0.8rem;
-    margin-bottom: 1rem;
-    color: var(--green);
-    font-weight: 500;
-}
-
-.job-desc {
-    color: var(--slate);
-    font-size: 0.95rem;
-    line-height: 1.7;
-    margin-top: 10px;
-}
-
-/* Projects Grid */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 24px;
-    margin-top: 40px;
-}
-
-.project-card {
-    background: var(--glass-bg);
-    border: var(--glass-border);
-    border-radius: var(--border-radius);
-    padding: 30px;
-    box-shadow: var(--glass-shadow);
-    backdrop-filter: blur(12px);
+/* Selected Works Portfolio Layout */
+.works-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
+    gap: 150px;
+    margin-top: 80px;
 }
 
-.project-card::before {
-    content: '';
-    position: absolute;
-    bottom: 0; right: 0; left: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--purple), transparent);
-    opacity: 0;
-    transition: var(--transition);
-}
-
-.project-card:hover::before {
-    opacity: 1;
-}
-
-.project-card:hover {
-    border-color: rgba(139, 92, 246, 0.3);
-    box-shadow: var(--neon-box-shadow);
-    background: rgba(30, 41, 59, 0.4);
-}
-
-.project-header {
+.work-showcase {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 30px;
     align-items: center;
+    gap: 60px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
 }
 
-.folder-icon {
-    color: var(--green);
-    width: 45px;
-    height: 45px;
-    filter: drop-shadow(0 0 8px rgba(0,229,255,0.4));
+/* Make every even showcase row reversed for beautiful alternating flow */
+.work-showcase:nth-child(even) {
+    flex-direction: row-reverse;
 }
 
-.project-links a {
-    color: var(--slate);
-    margin-left: 10px;
-}
-
-.project-links a:hover {
-    color: var(--green);
-}
-
-.project-title {
-    color: var(--white);
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-}
-
-.project-desc {
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
-    color: var(--slate);
-    flex-grow: 1;
-}
-
-.project-tech {
+.work-visual {
+    flex: 1;
+    background: var(--lightest-navy);
+    border-radius: var(--border-radius);
+    height: 400px;
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    font-family: ui-monospace, monospace;
-    font-size: 0.75rem;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--glass-shadow);
+    transition: var(--transition);
+    border: 1px solid rgba(15, 23, 42, 0.03);
+}
+
+.work-visual:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 40px -15px rgba(37, 99, 235, 0.1);
+}
+
+.massive-icon {
+    width: 100px;
+    height: 100px;
     color: var(--green);
-    margin-top: auto;
+    opacity: 0.8;
 }
 
-.project-tech li {
-    background: rgba(45, 212, 191, 0.1);
-    padding: 0.2rem 0.6rem;
-    border-radius: 4px;
-}
-
-/* Education & Certs */
-.education-content {
+.work-info {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    justify-content: center;
 }
 
-.edu-item, .contact-content, .certs-container, .skills-list {
-    background: var(--glass-bg);
-    border: var(--glass-border);
-    border-radius: var(--border-radius);
-    padding: 30px;
-    box-shadow: var(--glass-shadow);
-    backdrop-filter: blur(12px);
-    transition: var(--transition);
-}
-
-.edu-item h3 {
-    color: var(--white);
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.edu-degree {
+.work-subtitle {
     color: var(--green);
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.edu-date {
     font-family: ui-monospace, monospace;
     font-size: 0.9rem;
-    color: var(--slate);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
-.cert-list li {
-    position: relative;
-    padding-left: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--slate);
-    font-size: 0.95rem;
-}
-
-.cert-list a {
+.work-title {
     color: var(--light-slate);
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.work-info .job-desc {
+    color: var(--slate);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.work-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.work-tech span {
+    background: rgba(37, 99, 235, 0.05);
+    color: var(--green);
+    font-family: ui-monospace, monospace;
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.work-link {
+    color: #ffffff;
+    background-color: var(--light-slate);
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-block;
+    align-self: flex-start;
     transition: var(--transition);
 }
 
-.cert-list a:hover {
-    color: var(--green);
+.work-link:hover {
+    background-color: var(--green);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.3);
 }
 
-.cert-list a:hover::after {
-    opacity: 1;
+/* Responsive adjustment for works */
+@media (max-width: 900px) {
+    .works-container {
+        gap: 80px;
+    }
+    .work-showcase,
+    .work-showcase:nth-child(even) {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .work-visual {
+        width: 100%;
+        height: 250px;
+    }
+    .work-title {
+        font-size: 2rem;
+    }
+}
+
+/* Contact & Skills Glass Backgrounds */
+.contact-content, .skills-list {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(12px);
+    transition: var(--transition);
 }
 
 /* Contact */
