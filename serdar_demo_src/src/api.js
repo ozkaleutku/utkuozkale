@@ -48,12 +48,24 @@ mock.onPut("/forecast/update").reply((config) => {
     return [200, { success: true }];
 });
 mock.onGet(/\/forecast\/detail\/.+/).reply((config) => {
+    const itemId = config.url.split('/').pop();
     const history = [];
-    for(let i = 1; i <= 12; i++) {
-        history.push({ year: 2024, month: i, total_sales: Math.floor(Math.random() * 4000) + 500 });
-        history.push({ year: 2025, month: i, total_sales: Math.floor(Math.random() * 5000) + 500 });
-    }
-    return [200, { sales_history: history }];
+    // Generate 3 years of fake history
+    [2023, 2024, 2025].forEach(year => {
+        for(let i = 1; i <= 12; i++) {
+            history.push({ year: year, month: i, total_sales: Math.floor(Math.random() * 6000) + 800 });
+        }
+    });
+
+    // Get forecasts for this item
+    const itemForecasts = forecastData.filter(f => f.item_id === itemId).map(f => ({
+        date: f.date,
+        yhat: f.amount,
+        yhat_lower: f.yhat_lower,
+        yhat_upper: f.yhat_upper
+    }));
+
+    return [200, { sales_history: history, forecast: itemForecasts }];
 });
 
 // Mock Data for Safety Stock
@@ -62,14 +74,18 @@ const generateSafetyStocks = () => {
     const items = ['1001-KAPAK', '2005-GÖVDE', '3044-CONTA', '5002-VİDA', '7091-MOTOR'];
     const currentMonth = '2026-05-01';
     items.forEach(item => {
+        const formulaVal = Math.floor(Math.random() * 2000) + 500;
+        const aiVal = Math.floor(Math.random() * 2000) + 500;
         data.push({
             item_id: item,
             date: currentMonth,
-            safety_stock: Math.floor(Math.random() * 2000) + 500,
+            safety_stock: aiVal,
             item_quantity_type: 'Adet',
             current_stock: Math.floor(Math.random() * 3000) + 100,
-            prophet_suggestion: Math.floor(Math.random() * 2000) + 500,
-            kings_suggestion: Math.floor(Math.random() * 2000) + 500,
+            ai_amount: aiVal,
+            formula_amount: formulaVal,
+            prophet_suggestion: aiVal,
+            kings_suggestion: formulaVal,
             difference: Math.floor(Math.random() * 500) - 250,
             risk_category: ['Düşük', 'Orta', 'Yüksek'][Math.floor(Math.random() * 3)]
         });

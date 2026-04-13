@@ -4,6 +4,8 @@ const translations = {
         nav_about: "Hakkımda",
         nav_exp: "Deneyim",
         nav_projects: "Projeler",
+        nav_career: "Kariyer",
+        nav_skills: "Yetkinlikler",
         nav_edu: "Eğitim",
         nav_contact: "İletişim",
 
@@ -19,6 +21,12 @@ const translations = {
         about_p2: "Şu ana kadar edindiğim teknik yetkinlikler:",
 
         section_exp: "Deneyim",
+        section_career: "Önceki Deneyimler",
+        section_skills: "Teknik Yetkinlik Seti",
+        skill_group_core: "Mühendislik & AI",
+        skill_group_tech: "Teknoloji, Diller & Yapay Zeka",
+        skill_group_tools: "Endüstriyel Araçlar & Yönetsel Yetkinlikler",
+        utils_view_doc: "Dökümantasyonu İncele",
         skill_python: "Python & Scripting",
         skill_sql: "SQL (PostgreSQL, MSSQL, MySQL, SQLite) & Veri Analizi",
         skill_ai_arch: "Yapay Zeka Tabanlı Geliştirme",
@@ -33,19 +41,19 @@ const translations = {
         skill_rnd: "Araştırma & Geliştirme",
         skill_relations: "İç & Dış İlişkiler",
 
-        job_serdar_title: "Product Engineer",
+        job_serdar_title: "Project Engineer (Student)",
         job_serdar_date: "Ekim 2025 - Haziran 2026",
         job_serdar_desc: "Serdar Plastik bünyesinde, makine öğrenimi algoritmaları kullanarak akıllı emniyet stoku hesaplamaları yapan yapay zeka destekli özel bir Malzeme İhtiyaç Planlaması (MRP) modülü inşa ediyorum. Bu proje, tedarik zincirini tamamen veri odaklı bir yapıya taşıyor.",
 
-        job_bozankaya_title: "Automations Intern",
+        job_bozankaya_title: "Procurement Material Planning Intern",
         job_bozankaya_date: "Ağustos 2025 - Eylül 2025",
         job_bozankaya_desc: "Bozankaya'daki satın alma biriminde yer alan ilkel Excel işlemlerini tespit edip, onlara doğrudan entegre olan Python tabanlı veri boru hatları (data pipelines) tasarladım. Tekrarlayan görevleri ortadan kaldırarak raporlama sürelerinde %83 oranında hız ve tasarruf sağladım.",
 
-        job_ulak_title: "ERP Solutions Developer",
+        job_ulak_title: "ERP Intern",
         job_ulak_date: "Temmuz 2025 - Ağustos 2025",
         job_ulak_desc: "Ulak Haberleşme standartlarında envanter ve varlık takiplerinin yetersiz kaldığı alanları analiz ederek, kurum içi kullanıma özel Python tabanlı uçtan uca bir 'Varlık Yönetim Sistemi' geliştirdim.",
 
-        job_emge_title: "Trainee Engineer",
+        job_emge_title: "Quality Control Intern",
         job_emge_date: "Ocak 2024 - Şubat 2024",
         job_emge_desc: "EMGE üretim hattında CMM cihazları ve PC-DMIS yazılımlarını bizzat programlayarak, hassas endüstriyel kalite kontrol süreçlerinin uçtan uca nasıl kurgulandığını deneyimledim.",
 
@@ -57,7 +65,9 @@ const translations = {
         proj_aierp_desc: "Manuel iş akışlarını öngörücü zeka çözümleriyle değiştirerek, tüm iş operasyonlarını otonomlaştıran kapsayıcı, yapay zeka merkezli bir ERP omurgası tasarlıyorum.",
         proj_phoenix_desc: "Online perakendeye rekabetçi teklif (bidding) modeli getiren yenilikçi e-ticaret platformu Teklifs'te Kurucu Ortak olarak yer alıyorum.",
         proj_erp_desc: "Verimli envanter yönetimi ve personel malzeme atamaları için Python ve PyQt5 ile geliştirilmiş kapsamlı bir masaüstü uygulaması.",
-        proj_rapid_desc: "Afet öncesi ve sonrası analiz yapabilen İHA projesi. Afet anında sıcak veri aktarımı ve yapay zeka odaklı görüntü işleme yeteneği sunar. Kapsamlı pazar araştırması ve proje planlaması süreçlerini yönettim.",
+        proj_rapid_title: "RAPID Neostellar",
+        proj_rapid_subtitle: "İHA & Afet Yönetim Sistemi",
+        proj_rapid_desc: "Afet öncesi ve sonrası analiz yapabilen İHA projesi. Afet anında sıcak veri aktarımı ve yapay zeka odaklı görüntü işleme yeteneği sunar. Kapsamlı pazar araştırması ve proje planlaması süreçlerini bizzat yönettim.",
 
         section_edu: "Eğitim & Sertifikalar",
         edu_degree: "Endüstri Mühendisliği (İngilizce)",
@@ -89,13 +99,25 @@ const translations = {
         opti_title: "AIERP (In Dev)",
         opti_subtitle: "Aşağıdaki videoda ekosistemin çekirdek MRP ve optimizasyon motorunun çalışma prensiplerini inceleyebilirsiniz.",
         opti_doc_title: "Dökümantasyon (Geliştiriliyor)",
-        opti_doc_desc: "Ekosistem mimarisi, tahmin modelleri ve teknik dökümantasyon buraya eklenecektir."
+        opti_doc_desc: "Ekosistem mimarisi, tahmin modelleri ve teknik dökümantasyon buraya eklenecektir.",
+
+        doc_modal_subtitle: "Mevcut Sistem: Kayıt aracından (System of Record) -> Otonom Karar Alan Zekaya (System of Intelligence)",
+        doc_modal_left_title: "Projenin Vizyonu & Felsefesi",
+        doc_modal_left_desc: "Manuel süreçleri ve karmaşık tahminleri ortadan kaldıran Otomotize Edilmiş Çözüm Mimarisi.",
+        doc_modal_card1_title: "System of Record'dan System of Intelligence'a",
+        doc_modal_card1_desc: "Klasik ERP'lerin en büyük eksikliği veriyi sadece 'kaydedip' bırakmasıdır. AIERP; toplanan veriyi işleyen, makine öğrenmesi algoritmalarıyla geleceği tahmin eden ve planlama uzmanının yerini alarak kararları otonom alan bir beyin olmayı amaçlar.",
+        doc_modal_card2_title: "RAG Tabanlı İş Zekası (LLM Analyst)",
+        doc_modal_card2_desc: "Sistem yöneticileri karmaşık rapor menülerinde boğulmak yerine ERP ile doğal dilde doğrudan konuşur. 'Geçen ay kar marjımız neden %3 düştü?' sorusuna saniyeler içinde net veriyle yanıt verecek bir yapı kurgulanmıştır.",
+        doc_modal_card3_title: "Otonom & Ölçeklenebilir Modüller",
+        doc_modal_card3_desc: "Üretim çizelgeleme (MILP, Genetik), Prophet ile pazar talebi projeksiyonları, yeni yatırımlar için AI destekli Lokasyon Seçimi ve finansal anomali tespiti gibi dev detaylı yapılar; tek bir 'Ana Beyin' etrafında sıfır insan hatası kurgusuyla birleştirilmiştir."
     },
     en: {
         page_title: "Utku Altan Özkale | AI-Augmented Solutions Architect",
         nav_about: "About",
         nav_exp: "Experience",
         nav_projects: "Projects",
+        nav_career: "Career",
+        nav_skills: "Skills",
         nav_edu: "Education",
         nav_contact: "Contact",
 
@@ -111,6 +133,12 @@ const translations = {
         about_p2: "Core Competencies & Technologies:",
 
         section_exp: "Experience",
+        section_career: "Previous Experience",
+        section_skills: "Technical Skillset",
+        skill_group_core: "Engineering & AI",
+        skill_group_tech: "Tech, Languages & AI",
+        skill_group_tools: "Industrial Tools & Leadership",
+        utils_view_doc: "View Documentation",
         skill_python: "Python & Scripting",
         skill_sql: "SQL (PostgreSQL, MSSQL, MySQL, SQLite) & Data Analysis",
         skill_ai_arch: "AI-Driven Development",
@@ -125,19 +153,19 @@ const translations = {
         skill_rnd: "Research & Development",
         skill_relations: "Internal & External Relations",
 
-        job_serdar_title: "Product Engineer",
+        job_serdar_title: "Project Engineer (Student)",
         job_serdar_date: "October 2025 - June 2026",
         job_serdar_desc: "Building a custom AI/ML-powered MRP module that applies machine learning algorithms to perform intelligent safety stock calculations. This product fundamentally shifts the supply chain into a data-driven architecture.",
 
-        job_bozankaya_title: "Automations Intern",
+        job_bozankaya_title: "Procurement Material Planning Intern",
         job_bozankaya_date: "August 2025 - September 2025",
         job_bozankaya_desc: "Identified bottlenecks in legacy Excel operations and replaced them with autonomous Python-based data pipelines. This engineering intervention completely eliminated manual data entry, boosting reporting speed by an impressive 83%.",
 
-        job_ulak_title: "ERP Solutions Developer",
+        job_ulak_title: "ERP Intern",
         job_ulak_date: "July 2025 - August 2025",
         job_ulak_desc: "Addressed operational blind spots by designing and deploying an end-to-end Python-based Inventory Tracking System, ensuring real-time visibility across all corporate assets.",
 
-        job_emge_title: "Trainee Engineer",
+        job_emge_title: "Quality Control Intern",
         job_emge_date: "January 2024 - February 2024",
         job_emge_desc: "Programmed CMM devices and utilized PC-DMIS software on the manufacturing line to understand the structural foundations of high-precision industrial quality control processes.",
 
@@ -149,6 +177,8 @@ const translations = {
         proj_aierp_desc: "Architecting a comprehensive, AI-centric framework designed to autonomously manage enterprise operations by replacing manual workflows with predictive intelligence.",
         proj_phoenix_desc: "Co-Founder of Teklifs, an e-commerce platform that introduces a competitive bidding pricing model to online retail.",
         proj_erp_desc: "A comprehensive desktop application built with Python and PyQt5 for efficient inventory management and employee material assignments.",
+        proj_rapid_title: "RAPID Neostellar",
+        proj_rapid_subtitle: "UAV & Disaster Management System",
         proj_rapid_desc: "RAPID is a UAV designed to analyze disaster zones before and after events. Transmits real-time hot data during disasters and performs AI-integrated image processing. Conducted comprehensive market research, stakeholder coordination, and project roadmap development.",
 
         section_edu: "Education & Certificates",
@@ -181,7 +211,17 @@ const translations = {
         opti_title: "AIERP (In Dev)",
         opti_subtitle: "See the core MRP and optimization engine of the ecosystem in action below.",
         opti_doc_title: "Documentation (Under Dev)",
-        opti_doc_desc: "Ecosystem architecture, predictive models, and technical documentation will be added here."
+        opti_doc_desc: "Ecosystem architecture, predictive models, and technical documentation will be added here.",
+
+        doc_modal_subtitle: "Current State: Evolving from a System of Record into an Autonomous System of Intelligence",
+        doc_modal_left_title: "Project Vision & Philosophy",
+        doc_modal_left_desc: "An Automated Solution Architecture eliminating manual workflows and complex forecasting.",
+        doc_modal_card1_title: "From System of Record to System of Intelligence",
+        doc_modal_card1_desc: "Classic ERPs merely 'record' data. AIERP aims to be an autonomous brain—processing gathered data, forecasting the future via machine learning algorithms, and replacing rudimentary human planning to make autonomous decisions.",
+        doc_modal_card2_title: "RAG-Based Business Intelligence (LLM Analyst)",
+        doc_modal_card2_desc: "Instead of drowning in complex menus, managers can converse directly with the ERP using natural language. For instance, the system natively responds to 'Why did our profit margin drop by 3% last month?' in mere seconds.",
+        doc_modal_card3_title: "Autonomous & Scalable Modules",
+        doc_modal_card3_desc: "Complex structures such as production scheduling (MILP, Genetic), Prophet-backed market demand projections, AI-driven Location Selection algorithms for new investments, and financial anomaly detection are seamlessly integrated under a single 'Core Brain' with a zero-human-error architecture."
     }
 };
 
@@ -263,6 +303,23 @@ document.addEventListener('DOMContentLoaded', () => {
         if (typeof window.reloadDocLanguage === 'function') {
             window.reloadDocLanguage();
         }
+
+        // Render Mermaid Diagram Dynamically
+        const mermaidContainer = document.getElementById('mermaid_viz');
+        if (mermaidContainer) {
+            const mermaidCodeTR = `graph LR\n    Plan[Üretim Çizelgeleme] -->|MILP & Genetik| AIERP((AIERP<br/>Ana Beyin));\n    Inv[Emniyet Stoğu] -->|LightGBM Pipeline| AIERP;\n    Market[Pazar & Talep] -->|Facebook Prophet| AIERP;\n    Strat[Lokasyon Seçimi] -->|Mekansal Optimizasyon| AIERP;\n    Fin[Nakit & Maliyet] -->|RNN Anomali Tespiti| AIERP;\n    style AIERP fill:#2563eb,stroke:#fff,stroke-width:2px,color:#fff,font-weight:bold`;
+            const mermaidCodeEN = `graph LR\n    Plan[Production Scheduling] -->|MILP & Genetic| AIERP((AIERP<br/>Core Brain));\n    Inv[Safety Stock MRP] -->|LightGBM Pipeline| AIERP;\n    Market[Market Demand] -->|Facebook Prophet| AIERP;\n    Strat[Location Selection] -->|Spatial Optimization| AIERP;\n    Fin[Cash & Finance] -->|RNN Anomaly Detection| AIERP;\n    style AIERP fill:#2563eb,stroke:#fff,stroke-width:2px,color:#fff,font-weight:bold`;
+            
+            mermaidContainer.innerHTML = `<div class="mermaid">${lang === 'tr' ? mermaidCodeTR : mermaidCodeEN}</div>`;
+            const modal = document.getElementById('aierpModal');
+            if (modal) modal.dataset.mermaidRendered = 'false';
+            
+            // Auto re-render if modal is already open
+            if (modal && modal.classList.contains('active') && typeof mermaid !== 'undefined') {
+                mermaid.init(undefined, mermaidContainer.querySelectorAll('.mermaid'));
+                modal.dataset.mermaidRendered = 'true';
+            }
+        }
     }
 
     // Clickable Cards logic
@@ -313,6 +370,37 @@ document.addEventListener('DOMContentLoaded', () => {
             scale: 1.02
         });
     }
+
+    // Modal control logic
+    window.openAIERPModal = () => {
+        const modal = document.getElementById('aierpModal');
+        if (modal) {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Re-render mermaid if not rendered
+            if (typeof mermaid !== 'undefined' && modal.dataset.mermaidRendered !== 'true') {
+                mermaid.init(undefined, modal.querySelectorAll('.mermaid'));
+                modal.dataset.mermaidRendered = 'true';
+            }
+        }
+    };
+
+    window.closeAIERPModal = () => {
+        const modal = document.getElementById('aierpModal');
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // restore scroll
+        }
+    };
+    
+    // Close modal on outside click
+    document.addEventListener('click', (e) => {
+        const modal = document.getElementById('aierpModal');
+        if (modal && e.target === modal) {
+            closeAIERPModal();
+        }
+    });
 
     // --- GSAP ScrollTrigger Initializations ---
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
