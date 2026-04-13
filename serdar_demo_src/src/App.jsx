@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import Layout from "./components/layout/Layout";
 import DemandForecast from "./pages/DemandForecast";
@@ -15,7 +15,7 @@ const PlaceholderPage = ({ title }) => (
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Toaster position="top-right" toastOptions={{ duration: 5000 }} />
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -25,7 +25,7 @@ function App() {
           <Route path="safety-stock/compare" element={<SafetyStockComparison />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
