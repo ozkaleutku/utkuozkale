@@ -14,6 +14,7 @@ const translations = {
         hero_desc: "",
         hero_cv_btn: "CV İndir",
         utils_contact_btn: "İletişime Geç",
+        utils_drag_hint: "Kaydırmak için sürükleyin",
 
         nav_cv: "CV İndir",
         section_about: "Hakkımda",
@@ -126,6 +127,7 @@ const translations = {
         hero_desc: "",
         hero_cv_btn: "Download CV",
         utils_contact_btn: "Get in Touch",
+        utils_drag_hint: "Drag to explore",
 
         nav_cv: "Download CV",
         section_about: "About Me",
@@ -402,6 +404,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- Navigation & Hamburger Menu ---
+    const initNav = () => {
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const links = document.querySelectorAll('.nav-links a');
+
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                // Change icon if needed (handled by feather)
+            });
+
+            // Close menu when a link is clicked
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
+    };
+
+    initNav();
+
     // --- GSAP ScrollTrigger Initializations ---
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
@@ -434,5 +459,157 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // --- Advanced 3D Certificate Carousel Logic ---
+    const initCert3DCarousel = () => {
+        const wrapper = document.querySelector('.cert-carousel-wrapper');
+        const carousel = document.getElementById('cert-carousel');
+        const cards = document.querySelectorAll('.cert-card');
+        if (!wrapper || !carousel || cards.length === 0) return;
+
+        let progress = 0; // Current scroll progress
+        let targetProgress = 0;
+        let isDown = false;
+        let startX;
+        let startProgress;
+        let velocity = 0;
+        let lastX = 0;
+        const cardWidth = 320;
+        const spacing = 1.0; // Distance between cards in units
+
+        const updateCards = () => {
+            // Smoothly interpolate progress
+            progress += (targetProgress - progress) * 0.1;
+
+            const isMobile = window.innerWidth < 768;
+            const xSpread = isMobile ? 180 : 280;
+            const zDepth = isMobile ? -100 : -150;
+            const scaleFactor = isMobile ? 0.1 : 0.15;
+
+            cards.forEach((card, index) => {
+                // Determine relative position of card (0 is center)
+                const relativePos = index - progress;
+                
+                // Calculate 3D transforms
+                const absPos = Math.abs(relativePos);
+                
+                // Scale based on distance from center
+                const scale = 1 - absPos * scaleFactor;
+                
+                // Rotation based on position
+                const rotationY = relativePos * -35; // Tilt away from center
+                
+                // Depth (Z) offset
+                const z = absPos * zDepth;
+                
+                // Horizontal offset (arc effect)
+                const x = relativePos * xSpread;
+                
+                // Opacity fade
+                const opacity = 1 - absPos * 0.4;
+
+                // Apply transforms via GSAP for efficiency
+                gsap.set(card, {
+                    x: x,
+                    z: z,
+                    rotationY: rotationY,
+                    scale: Math.max(0.5, scale),
+                    opacity: Math.max(0, opacity),
+                    display: absPos > 3 ? 'none' : 'flex', // Performance: hide distant cards
+                    zIndex: Math.round(100 - absPos * 10)
+                });
+
+                // Update shine effect
+                const shine = card.querySelector('.cert-card-shine');
+                if (shine) {
+                    gsap.set(shine, {
+                        xPercent: relativePos * 50
+                    });
+                }
+            });
+
+            requestAnimationFrame(updateCards);
+        };
+
+        // Arrow Navigation with Event Delegation (Fix for Feather replacement)
+        const hintContainer = document.querySelector('.cert-carousel-hint');
+        if (hintContainer) {
+            hintContainer.style.cursor = 'default';
+            
+            hintContainer.addEventListener('click', (e) => {
+                // Find if an icon (i or svg) was clicked
+                const arrow = e.target.closest('i, svg');
+                if (!arrow) return;
+                
+                // Identify all icons in the hint to distinguish left and right
+                const allIcons = Array.from(hintContainer.querySelectorAll('i, svg'));
+                const index = allIcons.indexOf(arrow);
+                
+                if (index === 0) { // Left Arrow
+                    targetProgress = Math.max(0, Math.round(targetProgress - 1));
+                } else if (index === 1) { // Right Arrow
+                    targetProgress = Math.min(cards.length - 1, Math.round(targetProgress + 1));
+                }
+            });
+
+            // Set pointer cursor on the icons
+            const updateCursors = () => {
+                hintContainer.querySelectorAll('i, svg').forEach(el => el.style.cursor = 'pointer');
+            };
+            updateCursors();
+            setTimeout(updateCursors, 100); // Back-up for Feather replacement delay
+        }
+
+        // Pointer Events for Dragging
+        wrapper.addEventListener('pointerdown', (e) => {
+            isDown = true;
+            startX = e.pageX;
+            startProgress = targetProgress;
+            lastX = e.pageX;
+            velocity = 0;
+            wrapper.style.cursor = 'grabbing';
+            cancelAnimationFrame(updateCards); // We'll restart it if it stopped
+        });
+
+        window.addEventListener('pointermove', (e) => {
+            if (!isDown) return;
+            const x = e.pageX;
+            const diff = (startX - x) / 500; // Sensitivity
+            targetProgress = startProgress + diff;
+            
+            velocity = x - lastX;
+            lastX = x;
+        });
+
+        window.addEventListener('pointerup', () => {
+            if (!isDown) return;
+            isDown = false;
+            wrapper.style.cursor = 'grab';
+            
+            // Momentum snapping
+            const momentum = velocity * 0.01;
+            targetProgress -= momentum;
+            
+            // Snap to closest card
+            targetProgress = Math.round(targetProgress);
+            
+            // Constrain
+            targetProgress = Math.max(0, Math.min(cards.length - 1, targetProgress));
+        });
+
+        // Mouse Wheel support
+        wrapper.addEventListener('wheel', (e) => {
+            if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) return; 
+            e.preventDefault();
+            targetProgress += e.deltaX * 0.002;
+            targetProgress = Math.max(0, Math.min(cards.length - 1, targetProgress));
+            targetProgress = Math.round(targetProgress);
+        }, { passive: false });
+
+        // Start animation loop
+        requestAnimationFrame(updateCards);
+    };
+
+    initCert3DCarousel();
 
 });
