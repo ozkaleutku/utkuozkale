@@ -45,7 +45,21 @@ const ForecastDetailChart = ({ itemId, hideTable }) => {
             });
         }
 
-        // Add forecast data
+        // Add past forecast data
+        if (data.past_forecasts) {
+            data.past_forecasts.forEach(f => {
+                const dateStr = f.date.slice(0, 7);
+                const month = parseInt(f.date.slice(5, 7));
+                const year = parseInt(f.date.slice(0, 4));
+                if (!map[dateStr]) map[dateStr] = { date: dateStr, month, year };
+                map[dateStr].forecast = Math.round(f.yhat);
+                if (f.yhat_lower != null && f.yhat_upper != null) {
+                    map[dateStr].confidenceRange = [Math.round(f.yhat_lower), Math.round(f.yhat_upper)];
+                }
+            });
+        }
+
+        // Add future forecast data
         if (data.forecast) {
             data.forecast.forEach(f => {
                 const dateStr = f.date.slice(0, 7);
@@ -162,29 +176,30 @@ const ForecastDetailChart = ({ itemId, hideTable }) => {
                         <RefreshCw size={16} className="text-indigo-600" />
                     </div>
                     <h3 className="font-semibold text-gray-800">
-                        {itemId} — Aylık Tahmin & Satış Trendi
+                        {itemId} — Prophet Tahmin ve Gerçek Veri Yoğunluğu
                     </h3>
                 </div>
                 <ResponsiveContainer width="100%" height={320}>
                     <ComposedChart data={chartData} margin={{ top: 5, right: 20, bottom: 5, left: 10 }}>
                         <defs>
                             <linearGradient id={`confidence-${itemId}`} x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="0%" stopColor="#8b5cf6" stopOpacity={0.2} />
+                                <stop offset="0%" stopColor="#8b5cf6" stopOpacity={0.15} />
                                 <stop offset="100%" stopColor="#8b5cf6" stopOpacity={0.05} />
                             </linearGradient>
                         </defs>
                         <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.7} />
                         <XAxis
                             dataKey="date"
-                            tick={{ fontSize: 11, fill: "#6b7280" }}
+                            tick={{ fontSize: 10, fill: "#6b7280" }}
                             tickFormatter={(val) => {
                                 const parts = val.split("-");
                                 return `${MONTH_NAMES[parseInt(parts[1]) - 1]} '${parts[0].slice(2)}`;
                             }}
                             axisLine={{ stroke: '#d1d5db' }}
+                            minTickGap={30}
                         />
                         <YAxis
-                            tick={{ fontSize: 11, fill: "#6b7280" }}
+                            tick={{ fontSize: 10, fill: "#6b7280" }}
                             axisLine={{ stroke: '#d1d5db' }}
                             tickFormatter={(val) => val.toLocaleString("tr-TR")}
                         />
@@ -206,12 +221,12 @@ const ForecastDetailChart = ({ itemId, hideTable }) => {
                             dataKey="confidenceRange"
                             fill={`url(#confidence-${itemId})`}
                             stroke="#8b5cf6"
-                            strokeWidth={1}
-                            strokeDasharray="4 4"
-                            strokeOpacity={0.4}
+                            strokeWidth={0.5}
+                            strokeDasharray="3 3"
+                            strokeOpacity={0.3}
                             fillOpacity={1}
                             name="confidenceRange"
-                            connectNulls={false}
+                            connectNulls={true}
                         />
 
                         {/* Actual sales line */}
@@ -219,11 +234,11 @@ const ForecastDetailChart = ({ itemId, hideTable }) => {
                             type="monotone"
                             dataKey="actual"
                             stroke="#3b82f6"
-                            strokeWidth={2.5}
-                            dot={{ fill: "#3b82f6", r: 4, strokeWidth: 2, stroke: "#fff" }}
-                            activeDot={{ r: 6, stroke: "#3b82f6", strokeWidth: 2, fill: "#fff" }}
+                            strokeWidth={2}
+                            dot={false}
+                            activeDot={{ r: 4, stroke: "#3b82f6", strokeWidth: 2, fill: "#fff" }}
                             name="actual"
-                            connectNulls={false}
+                            connectNulls={true}
                         />
 
                         {/* Forecast line */}
@@ -231,12 +246,17 @@ const ForecastDetailChart = ({ itemId, hideTable }) => {
                             type="monotone"
                             dataKey="forecast"
                             stroke="#6366f1"
-                            strokeWidth={2.5}
-                            strokeDasharray="8 4"
-                            dot={{ fill: "#6366f1", r: 4, strokeWidth: 2, stroke: "#fff" }}
-                            activeDot={{ r: 6, stroke: "#6366f1", strokeWidth: 2, fill: "#fff" }}
+                            strokeWidth={2}
+                            strokeDasharray={({ payload }) => {
+                                // Make it dashed in the future? 
+                                // For now just use a consistent style but maybe dashed for past and solid for future?
+                                // Actually let's just make it slightly dashed to imply it's a model
+                                return "5 5";
+                            }}
+                            dot={false}
+                            activeDot={{ r: 4, stroke: "#6366f1", strokeWidth: 2, fill: "#fff" }}
                             name="forecast"
-                            connectNulls={false}
+                            connectNulls={true}
                         />
                     </ComposedChart>
                 </ResponsiveContainer>

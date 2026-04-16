@@ -55,8 +55,8 @@ const ProductExpandedContent = ({ product, isApproved, editingKey, editAmount, s
                                 {historyYears.map(y => (
                                     <th key={y} className="px-5 py-3 text-right font-semibold text-gray-500 uppercase">{y}</th>
                                 ))}
-                                <th className="px-5 py-3 text-right font-semibold text-purple-400 uppercase bg-purple-50/30">Güven Aralığı</th>
-                                <th className="px-5 py-3 text-right font-semibold text-indigo-500 uppercase bg-indigo-50/20">Tahmin Miktarı</th>
+                                <th className="px-5 py-3 text-right font-semibold text-purple-400 uppercase bg-purple-50/30">Güven Aralığı (%95)</th>
+                                <th className="px-5 py-3 text-right font-semibold text-indigo-500 uppercase bg-indigo-50/20">Prophet Tahmini</th>
                                 <th className="px-5 py-3 text-right font-semibold text-gray-500 uppercase">Durum & İşlemler</th>
                             </tr>
                         </thead>
@@ -405,7 +405,7 @@ const DemandForecast = () => {
                                         </div>
                                         <div>
                                             <h3 className="text-lg font-bold text-gray-900">{product.item_id}</h3>
-                                            <p className="text-sm text-gray-500">Önümüzdeki Yıl İçin Toplam Tahmin: <span className="font-semibold text-indigo-600">{Math.round(product.totalForecast).toLocaleString("tr-TR")} Birim</span></p>
+                                            <p className="text-sm text-gray-500">Gelecek Yıl Toplam Prophet Tahmini: <span className="font-semibold text-indigo-600">{Math.round(product.totalForecast).toLocaleString("tr-TR")} Birim</span></p>
                                         </div>
                                     </div>
                                 </div>
