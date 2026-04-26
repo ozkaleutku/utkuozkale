@@ -52,7 +52,7 @@ const ForecastDetailChart = ({ itemId, hideTable }) => {
                 const month = parseInt(f.date.slice(5, 7));
                 const year = parseInt(f.date.slice(0, 4));
                 if (!map[dateStr]) map[dateStr] = { date: dateStr, month, year };
-                map[dateStr].forecast = Math.round(f.yhat);
+                map[dateStr].pastForecast = Math.round(f.yhat);
                 if (f.yhat_lower != null && f.yhat_upper != null) {
                     map[dateStr].confidenceRange = [Math.round(f.yhat_lower), Math.round(f.yhat_upper)];
                 }
@@ -66,7 +66,7 @@ const ForecastDetailChart = ({ itemId, hideTable }) => {
                 const month = parseInt(f.date.slice(5, 7));
                 const year = parseInt(f.date.slice(0, 4));
                 if (!map[dateStr]) map[dateStr] = { date: dateStr, month, year };
-                map[dateStr].forecast = Math.round(f.yhat);
+                map[dateStr].futureForecast = Math.round(f.yhat);
                 if (f.yhat_lower != null && f.yhat_upper != null) {
                     map[dateStr].confidenceRange = [Math.round(f.yhat_lower), Math.round(f.yhat_upper)];
                 }
@@ -149,8 +149,16 @@ const ForecastDetailChart = ({ itemId, hideTable }) => {
                             </div>
                         );
                     }
-                    const labels = { actual: "Gerçek Satış", forecast: "Prophet Tahmini" };
-                    const colors = { actual: "#3b82f6", forecast: "#6366f1" };
+                    const labels = { 
+                        actual: "Gerçek Satış", 
+                        pastForecast: "Geçmiş Tahmin",
+                        futureForecast: "Gelecek AI Tahmini" 
+                    };
+                    const colors = { 
+                        actual: "#3b82f6", 
+                        pastForecast: "#6366f1",
+                        futureForecast: "#10b981" 
+                    };
                     return (
                         <div key={i} className="flex justify-between items-center gap-4 py-0.5">
                             <span style={{ color: colors[p.dataKey] || p.color }} className="flex items-center gap-1.5">
@@ -209,10 +217,11 @@ const ForecastDetailChart = ({ itemId, hideTable }) => {
                             formatter={(value) => {
                                 const map = {
                                     actual: "Gerçek Satış",
-                                    forecast: "Prophet Tahmini",
+                                    pastForecast: "Geçmiş Tahmin",
+                                    futureForecast: "Gelecek AI Tahmini",
                                     confidenceRange: "Güven Aralığı (%95)"
                                 };
-                                return <span className="text-gray-600">{map[value] || value}</span>;
+                                return <span className={value === "futureForecast" ? "text-emerald-600 font-bold" : "text-gray-600"}>{map[value] || value}</span>;
                             }}
                         />
 
@@ -241,21 +250,28 @@ const ForecastDetailChart = ({ itemId, hideTable }) => {
                             connectNulls={true}
                         />
 
-                        {/* Forecast line */}
+                        {/* Past Forecast line */}
                         <Line
                             type="monotone"
-                            dataKey="forecast"
+                            dataKey="pastForecast"
                             stroke="#6366f1"
-                            strokeWidth={2}
-                            strokeDasharray={({ payload }) => {
-                                // Make it dashed in the future? 
-                                // For now just use a consistent style but maybe dashed for past and solid for future?
-                                // Actually let's just make it slightly dashed to imply it's a model
-                                return "5 5";
-                            }}
+                            strokeWidth={1.5}
+                            strokeDasharray="4 4"
                             dot={false}
                             activeDot={{ r: 4, stroke: "#6366f1", strokeWidth: 2, fill: "#fff" }}
-                            name="forecast"
+                            name="pastForecast"
+                            connectNulls={true}
+                        />
+
+                        {/* Future Forecast line */}
+                        <Line
+                            type="monotone"
+                            dataKey="futureForecast"
+                            stroke="#10b981"
+                            strokeWidth={3}
+                            dot={{ fill: "#10b981", r: 3 }}
+                            activeDot={{ r: 5, stroke: "#10b981", strokeWidth: 2, fill: "#fff" }}
+                            name="futureForecast"
                             connectNulls={true}
                         />
                     </ComposedChart>

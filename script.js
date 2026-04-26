@@ -44,7 +44,7 @@ const translations = {
 
         job_serdar_title: "Project Engineer (Student)",
         job_serdar_date: "Ekim 2025 - Haziran 2026",
-        job_serdar_desc: "Serdar Plastik bünyesinde, makine öğrenimi algoritmaları kullanarak akıllı emniyet stoku hesaplamaları yapan yapay zeka destekli özel bir Malzeme İhtiyaç Planlaması (MRP) modülü inşa ediyorum. Bu proje, tedarik zincirini tamamen veri odaklı bir yapıya taşıyor.",
+        job_serdar_desc: "Serdar Plastik bünyesinde, AI tahminleri ile geleneksel yöntemleri ürün bazlı gruplanmış 12 aylık drill-down görünümlerde karşılaştıran ve entegre tüketim analizleri sunan akıllı bir emniyet stoku modülü geliştiriyorum. Sistem, uzman görüşü ile yapay zekayı hibrit bir yapıda birleştirir.",
 
         job_bozankaya_title: "Procurement Material Planning Intern",
         job_bozankaya_date: "Ağustos 2025 - Eylül 2025",
@@ -110,7 +110,7 @@ const translations = {
         doc_modal_card2_title: "RAG Tabanlı İş Zekası (LLM Analyst)",
         doc_modal_card2_desc: "Sistem yöneticileri karmaşık rapor menülerinde boğulmak yerine ERP ile doğal dilde doğrudan konuşur. 'Geçen ay kar marjımız neden %3 düştü?' sorusuna saniyeler içinde net veriyle yanıt verecek bir yapı kurgulanmıştır.",
         doc_modal_card3_title: "Otonom & Ölçeklenebilir Modüller",
-        doc_modal_card3_desc: "Üretim çizelgeleme (MILP, Genetik), Prophet ile pazar talebi projeksiyonları, yeni yatırımlar için AI destekli Lokasyon Seçimi ve finansal anomali tespiti gibi dev detaylı yapılar; tek bir 'Ana Beyin' etrafında sıfır insan hatası kurgusuyla birleştirilmiştir."
+        doc_modal_card3_desc: "Üretim çizelgeleme (MILP, Genetik), Prophet ile pazar talebi projeksiyonları, ürün bazlı gruplanmış 12 aylık hibrit emniyet stok analizi ve finansal anomali tespiti gibi sistemler; uzman denetimiyle birleştirilerek tek bir 'Ana Beyin' çatısında toplanmıştır."
     },
     en: {
         page_title: "Utku Altan Özkale | AI-Augmented Solutions Architect",
@@ -157,7 +157,7 @@ const translations = {
 
         job_serdar_title: "Project Engineer (Student)",
         job_serdar_date: "October 2025 - June 2026",
-        job_serdar_desc: "Building a custom AI/ML-powered MRP module that applies machine learning algorithms to perform intelligent safety stock calculations. This product fundamentally shifts the supply chain into a data-driven architecture.",
+        job_serdar_desc: "Developing an intelligent safety stock module for Serdar Plastik that compares AI predictions with traditional methods in product-centric 12-month drill-down views, offering integrated consumption analysis. The system provides a hybrid decision-support mechanism that blends expert judgment with machine learning.",
 
         job_bozankaya_title: "Procurement Material Planning Intern",
         job_bozankaya_date: "August 2025 - September 2025",
@@ -223,7 +223,7 @@ const translations = {
         doc_modal_card2_title: "RAG-Based Business Intelligence (LLM Analyst)",
         doc_modal_card2_desc: "Instead of drowning in complex menus, managers can converse directly with the ERP using natural language. For instance, the system natively responds to 'Why did our profit margin drop by 3% last month?' in mere seconds.",
         doc_modal_card3_title: "Autonomous & Scalable Modules",
-        doc_modal_card3_desc: "Complex structures such as production scheduling (MILP, Genetic), Prophet-backed market demand projections, AI-driven Location Selection algorithms for new investments, and financial anomaly detection are seamlessly integrated under a single 'Core Brain' with a zero-human-error architecture."
+        doc_modal_card3_desc: "Complex structures such as production scheduling (MILP, Genetic), Prophet-backed market demand projections, hybrid safety stock analysis with product-centric 12-month drill-down, and financial anomaly detection are seamlessly integrated under a single 'Core Brain' with expert-in-the-loop oversight."
     }
 };
 
@@ -309,8 +309,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Render Mermaid Diagram Dynamically
         const mermaidContainer = document.getElementById('mermaid_viz');
         if (mermaidContainer) {
-            const mermaidCodeTR = `graph LR\n    Plan[Üretim Çizelgeleme] -->|MILP & Genetik| AIERP((AIERP<br/>Ana Beyin));\n    Inv[Emniyet Stoğu] -->|LightGBM Pipeline| AIERP;\n    Market[Pazar & Talep] -->|Facebook Prophet| AIERP;\n    Strat[Lokasyon Seçimi] -->|Mekansal Optimizasyon| AIERP;\n    Fin[Nakit & Maliyet] -->|RNN Anomali Tespiti| AIERP;\n    style AIERP fill:#2563eb,stroke:#fff,stroke-width:2px,color:#fff,font-weight:bold`;
-            const mermaidCodeEN = `graph LR\n    Plan[Production Scheduling] -->|MILP & Genetic| AIERP((AIERP<br/>Core Brain));\n    Inv[Safety Stock MRP] -->|LightGBM Pipeline| AIERP;\n    Market[Market Demand] -->|Facebook Prophet| AIERP;\n    Strat[Location Selection] -->|Spatial Optimization| AIERP;\n    Fin[Cash & Finance] -->|RNN Anomaly Detection| AIERP;\n    style AIERP fill:#2563eb,stroke:#fff,stroke-width:2px,color:#fff,font-weight:bold`;
+            const mermaidCodeTR = `graph LR\n    Plan[Üretim Çizelgeleme] -->|MILP & Genetik| AIERP((AIERP<br/>Ana Beyin));\n    Inv[Emniyet Stok Analizi] -->|AI vs Formül vs Manuel| AIERP;\n    Market[Pazar & Talep] -->|Facebook Prophet| AIERP;\n    Strat[Lokasyon Seçimi] -->|Mekansal Optimizasyon| AIERP;\n    Fin[Nakit & Maliyet] -->|RNN Anomali Tespiti| AIERP;\n    style AIERP fill:#2563eb,stroke:#fff,stroke-width:2px,color:#fff,font-weight:bold`;
+            const mermaidCodeEN = `graph LR\n    Plan[Production Scheduling] -->|MILP & Genetic| AIERP((AIERP<br/>Core Brain));\n    Inv[Safety Stock Analysis] -->|AI vs Formula vs Manual| AIERP;\n    Market[Market Demand] -->|Facebook Prophet| AIERP;\n    Strat[Location Selection] -->|Spatial Optimization| AIERP;\n    Fin[Cash & Finance] -->|RNN Anomaly Detection| AIERP;\n    style AIERP fill:#2563eb,stroke:#fff,stroke-width:2px,color:#fff,font-weight:bold`;
             
             mermaidContainer.innerHTML = `<div class="mermaid">${lang === 'tr' ? mermaidCodeTR : mermaidCodeEN}</div>`;
             const modal = document.getElementById('aierpModal');

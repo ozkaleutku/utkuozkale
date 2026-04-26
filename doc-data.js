@@ -60,26 +60,23 @@ graph TD
 `,
             "Stratejik_Talep_Tahmini": `# 📈 Stratejik Talep Tahminleme Modülü (Makine Öğrenmesi)
 
-Geleceği tahmin etmek sihir değil, verinin doğru yapılandırılmasıdır. 
-Dünya standartlarında rüştünü ispatlamış zaman serisi analitiği üzerine kurgulanan makine öğrenmesi (ML) motorumuz, şirketinize aylar öncesinden hedef gösterir.
+Geleceği tahmin etmek sihir değil, verinin doğru yapılandırılmasıdır. Dünya standartlarında rüştünü ispatlamış zaman serisi analitiği üzerine kurgulanan makine öğrenmesi (ML) motorumuz, şirketinize aylar öncesinden hedef gösterir.
 
-## Satış Geçmişinin Anatomisi
+## Ürün Bazlı 12 Aylık Drill-Down Analizi
 
-Sistem veriyi parçalara ayırarak zekice bir öngörü üretir:
-
-*   **Trend Bileşeni:** Şirket genel olarak büyüyor mu, küçülüyor mu? İvme (Momentum) ne yönde?
-*   **Mevsimsel Döngüler:** Yıllık, aylık, hatta haftalık rutin satış hareketleri hafızaya kazınır.
-*   **Tatil ve Olay Etkileri:** Bayramlar veya kampanyalar gibi dışsal şokların satışa bıraktığı izler ayrıştırılır.
-
-Tüm bu "Gürültüden" arındırılmış modelleme sayesinde, satınalma biriminiz reaktif alımlar yapmak yerine proaktif sözleşmelerin konforunu yaşar.
+Sistem, tahminleri ürün bazlı **Akıllı Kartlar** altında gruplar. Bir ürüne tıklandığında:
+*   **12 Aylık Projeksiyon:** Gelecek bir yılın aylık tahminleri anlık olarak açılır.
+*   **Entegre Tahmin Grafiği:** ForecastDetailChart ile geçmiş 4 yılın fiili satışları, AI tahmini ve güven aralıkları (Confidence Intervals) tek bir görsel düzlemde çakıştırılır.
+*   **Hücre Bazlı Müdahale:** Uzman, AI'nın her bir ayı için ürettiği rakamı doğrudan tablo üzerinden güncelleyebilir ve onaylayabilir.
 
 \`\`\`mermaid
 graph TD
-    A[Ham Satış Verisi] --> B(Makine Öğrenmesi - Zaman Serisi Modeli)
-    B --> C[Mevsimsellik Algısı]
-    B --> D[Büyüme İvmesi Analizi]
-    B --> X[Aykırı Değer ve Tatil Filtrelemesi]
-    C & D & X --> E((Yüksek İsabetli Gelecek Projeksiyonu))
+    A[Ham Satış Verisi] --> B(ML Zaman Serisi Modeli)
+    B --> C[Ürün Kartları Görünümü]
+    C --> D{12 Aylık Detay}
+    D --> E[Fiili vs Tahmin Grafiği]
+    D --> F[Ay Bazlı Manuel Revize]
+    E & F --> G((Onaylanmış Satış Planı))
     
     style B fill:#11998e,stroke:#38ef7d,stroke-width:2px,color:#fff
 \`\`\`
@@ -110,6 +107,43 @@ graph TD
     
     style B fill:#f39c12,stroke:#d35400,stroke-width:2px,color:#fff
 \`\`\`
+`,
+            "Urun_Bazli_Analiz_ve_Karar_Destek": `# ⚖️ Ürün Bazlı Analiz ve Karar Destek Mekanizması
+
+Yapay zeka sadece bir rakam üretmez, kararı destekleyecek tüm kanıtları masaya yatırır. Sistemin **Karşılaştırma ve Onay** ekranı, "Kara Kutu" (Black Box) mantığını yıkarak şeffaf ve kontrol edilebilir bir deneyim sunar.
+
+## Ürün Odaklı Gruplanmış Mimari
+
+Sistem, karmaşık listeleri ürün bazlı **Akıllı Kartlar** (Accordion) altında toplar. Talep Tahmini modülüyle aynı mimariyi kullanan bu ekran sayesinde planlama uzmanı ürüne tıklandığında 12 aylık projeksiyonu anlık görür.
+
+## Entegre Tüketim ve Trend Analizi
+
+Her ürünün detayında, AI tarafından üretilen veriler görsel bir hikayeye dönüşür. ConsumptionChart üzerinden:
+*   **Fiili Tüketim (Turuncu Area):** Geçmişte ne kadar hammadde harcanmış?
+*   **Geçmiş Emniyet Stoğu (Mavi Line):** Eskiden ne kadar stok tutulmuş?
+*   **Gelecek AI Önerisi (Yeşil Dashed):** Gelecekte ne kadar tutulmalı?
+
+## Hibrit Karar ve 5 Hane Hassasiyet
+
+Uzman, AI önerilerini (0,00000 hassasiyetiyle) Manuel Girişler veya Sabit Formüllerle karşılaştırır. Tercih (Preference) seçimi yapıldığı an sistem "Nihai Planı" günceller.
+
+\`\`\`mermaid
+graph TD
+    subgraph Analiz_Katmani [Veri Analiz Katmanı]
+        A[Fiili Tüketim] & B[Geçmiş Veri] --> C{AI Trend Analizi}
+    end
+    
+    subgraph Karar_Katmani [Uzman Karar Katmanı]
+        C -- Öneri --> D[Karşılaştırma Tablosu]
+        E[Manuel Müdahale] --> D
+        F[Formül Sonucu] --> D
+    end
+    
+    D --> G((Onaylanmış Nihai Stok))
+    
+    style C fill:#10b981,stroke:#059669,color:#fff
+    style D fill:#3b82f6,stroke:#2563eb,color:#fff
+\`\`\`
 `
         }
     },
@@ -117,27 +151,27 @@ graph TD
         "yatirimci_ozeti": {
             "Why_AI_MRP": `# 🚀 Why Our System? Beyond Traditional MRP
 
-Traditional MRP (Material Requirements Planning) systems operate on shallow formulas that ignore real-world variables. They only look at available stock, assume fixed delivery times, and use a simple "order if short" logic. This superficiality leads to warehouses bloated with dead stock or production lines unexpectedly halting due to crises.
+Traditional MRP systems work with shallow formulas that do not account for global variables. They only look at stock on hand, assume fixed lead times, and follow a "place order if missing" mechanic. This superficiality leads to warehouses bloated with dead stock or production lines halted by "unexpected" crises.
 
-Our **Multi-Dimensional AI-Powered MRP** does not look at events linearly. It melts raw material delay variances, demand volatility, and targeted service levels in the same pot to create a seamless "Virtual Armor".
+Our **Multi-Dimensional AI-Augmented MRP** doesn't view events in a single dimension. By blending raw material delay variances, demand volatility, and target service levels in the same pot, it creates a seamless "Virtual Armor."
 
-## Untouchable Value Proposition
+## Our Unrivaled Value Proposition
 
-*   **Capital Freedom:** Melts the "fear stocks" created by rigid formulas. By making smart decisions to stock exactly what is needed right when it's needed, it turns idle capital into cash.
-*   **Proactive Crisis Prevention:** The system collides promised delivery dates with hidden supplier risks, detecting bottlenecks weeks before the fire even starts.
-*   **Infinite Capacity Dynamics:** Whether you have 5 or 50 level complex Bills of Materials (BOM); it simulates the entire component tree against live warehouse data in seconds.
+*   **Capital Freedom:** Liquidates "fear stocks" created by shallow formulas. Converts idle capital into cash with smart decisions that ensure what's needed is in the warehouse exactly when it's needed.
+*   **Proactive Crisis Prevention:** The system detects crises (bottlenecks) weeks before they happen by clashing promised delivery dates with hidden supplier risks.
+*   **Infinite Capacity Dynamics:** Whether you have 5 or 50 level complex Bills of Materials (BOM); it simulates the entire component tree over real-time inventory data in seconds.
 
 \`\`\`mermaid
 graph TD
-    subgraph Shallow_Architecture [Legacy Shallow MRP]
+    subgraph Sig_Yapi [Legacy Shallow MRP]
         A[Static Formula] --> B[Keep Fixed Stock]
-        B --> C[Either Crisis, Or Dead Capital]
+        B --> C[Either Crisis or Dead Capital]
     end
     
-    subgraph Deep_Model [Multi-Dimensional AI Analysis]
-        D[Supplier Delay Variance] & E[Demand Volatility] & F[Live Reserve + En Route] --> G{Central Learning Models}
-        G --> H[Proactive Procurement Warning]
-        G --> I[Dynamic Stock Model Leaving Zero Chance]
+    subgraph Derin_Model [Multi-Dimensional AI Analysis]
+        D[Supplier Delay Variance] & E[Demand Volatility] & F[Live Reservation + En-route Goods] --> G{Central Learning Models}
+        G --> H[Proactive Supply Alert]
+        G --> I[Zero-Probability Dynamic Stock Model]
         H & I --> J((Minimum Capital / Maximum Service))
     end
     
@@ -145,20 +179,20 @@ graph TD
 \`\`\`
 `
         },
-        "yapay_zeka_teknolojileri": {
+        "yapay_zeka_technologies": {
             "Comprehensive_Risk_Analysis": `# 🛡️ Comprehensive Risk Analysis and Optimization (Machine Learning)
 
-The biggest gap separating our system from standard MRPs is **Risk Perception.** Classic systems work with the assumption "The supplier brings this item in 10 days on average" and are effectively blind. The high-capacity machine learning engine forming our core does not believe in "Averages"; it focuses on "Deviations and Variances".
+The biggest chasm separating our system from standard MRPs is **Risk Perception.** Classic systems work with the assumption that "The supplier brings this material in an average of 10 days" and are blind. Our high-capacity machine learning engine does not believe in "Averages"; it focuses on "Deviations and Variances."
 
 ## Multi-Layered Risk Matrix
 
-When our system examines a material, it doesn't just look at the past; it generates a multi-dimensional risk profile:
+Our system doesn't just look at the past when examining a material; it produces a multi-dimensional risk profile:
 
-1.  **Supplier Reliability Deviation:** Does the supplier usually deliver early, or occasionally very late? What is the frequency of deviation?
-2.  **Demand Volatility:** Is the product demand stable or highly susceptible to sudden unpredictable jumps?
-3.  **Criticality Target:** Management's marked market goals (e.g. "I must offer 98% availability to my customer") are seated into a mathematical equation.
+1.  **Supplier Reliability Deviation:** Does the supplier usually bring it early, or do they occasionally get very late? What is the deviation frequency?
+2.  **Demand Volatility:** Is the market demand for the product stable or highly susceptible to sudden spikes?
+3.  **Criticality Target:** Management-defined market targets (e.g., "I must provide 98% availability to my customer") are integrated into a mathematical equation.
 
-When this matrix combines, an automatic **Dynamic Safety Stock** is created for each material that protects the enterprise from crises without bloating the warehouse.
+When this matrix combines, **Dynamic Safety Stock** is automatically created for each material, protecting the business from crises without bloating the warehouse.
 
 \`\`\`mermaid
 graph TD
@@ -166,40 +200,37 @@ graph TD
     B[Statistical Volatility of Demand] --> D
     C[Management Criticality Target %] --> D
     
-    D -- High Risk Coefficient --> E[Fortify Armor: Dynamically Increase Stock]
-    D -- Low Risk Coefficient --> F[Free Capital: Decrease Stock Target]
+    D -- High Risk Coefficient --> E[Strengthen Armor: Dynamically Increase Stock]
+    D -- Low Risk Coefficient --> F[Free Capital: Reduce Stock Target]
     
     style D fill:#e53935,stroke:#b71c1c,stroke-width:2px,color:#fff
 \`\`\`
 `,
             "Strategic_Demand_Forecasting": `# 📈 Strategic Demand Forecasting Module (Machine Learning)
 
-Predicting the future is not magic; it's the correct structuring of data. 
-Our machine learning (ML) engine, built upon globally proven time-series analytics, sets targets for your company months in advance.
+Predicting the future is not magic; it's about structured data. Our ML engine, built on world-class time-series analytics, provides targets for your company months in advance.
 
-## Anatomy of Sales History
+## Product-Based 12-Month Drill-Down Analysis
 
-The system produces a brilliant prediction by breaking the data into pieces:
-
-*   **Trend Component:** Is the company generally growing or shrinking? In what direction is the momentum?
-*   **Seasonal Cycles:** Annual, monthly, or even weekly routine sales patterns are etched into its memory.
-*   **Holiday and Event Impacts:** The imprints left on sales by external shocks like holidays or campaigns are isolated.
-
-Thanks to all this "Noise-Free" modeling, your procurement department enjoys the comfort of proactive contracts instead of making reactive purchases.
+The system groups forecasts under product-centric **Smart Cards**. Clicking a product reveals:
+*   **12-Month Projection:** Monthly forecasts for the coming year expand instantly.
+*   **Integrated Forecasting Chart:** ForecastDetailChart overlays the last 4 years of actual sales, AI predictions, and Confidence Intervals on a single visual plane.
+*   **Cell-Based Intervention:** Experts can update and approve specific AI-generated figures for each month directly in the table.
 
 \`\`\`mermaid
 graph TD
-    A[Raw Sales Data] --> B(Machine Learning - Time Series Model)
-    B --> C[Seasonality Detection]
-    B --> D[Growth Momentum Analysis]
-    B --> X[Outlier & Holiday Filtering]
-    C & D & X --> E((High-Accuracy Future Projection))
+    A[Raw Sales Data] --> B(ML Time-Series Model)
+    B --> C[Product Cards View]
+    C --> D{12-Month Detail}
+    D --> E[Actual vs Forecast Chart]
+    D --> F[Month-Based Manual Revision]
+    E & F --> G((Approved Sales Plan))
     
     style B fill:#11998e,stroke:#38ef7d,stroke-width:2px,color:#fff
 \`\`\`
 `
         },
-        "sistem_ozellikleri": {
+        "system_capabilities": {
             "Deep_Simulation_and_Bottleneck_Detection": `# 🗺️ Digital Twin and Simulation Engine
 
 When you enter an order in ordinary systems, they only check "Is there enough material in the warehouse?". Our **Digital Twin** infrastructure works like a time machine for your enterprise, experiencing that order's production process beforehand in a virtual environment.
@@ -223,6 +254,43 @@ graph TD
     F --> G[System Reports Exactly Which Day Action Must be Taken]
     
     style B fill:#f39c12,stroke:#d35400,stroke-width:2px,color:#fff
+\`\`\`
+`,
+            "Product_Based_Analysis_and_Decision_Support": `# ⚖️ Product-Based Analysis and Decision Support Mechanism
+
+AI doesn't just produce a number; it puts all the evidence to support the decision on the table. The system's **Comparison and Approval** screen breaks the "Black Box" logic, offering a transparent and controllable experience.
+
+## Product-Centric Grouped Architecture
+
+The system gathers complex lists under product-based **Smart Cards** (Accordion). Using the same architecture as the Demand Forecast module, this screen allows the planning expert to see the 12-month projection instantly when a product is clicked.
+
+## Integrated Consumption and Trend Analysis
+
+Inside each product detail, AI-generated data turns into a visual story. Via ConsumptionChart:
+*   **Actual Consumption (Orange Area):** How much raw material was used in the past?
+*   **Historical Safety Stock (Blue Line):** How much stock was kept before?
+*   **Future AI Suggestion (Green Dashed):** How much should be kept in the future?
+
+## Hybrid Decision and 5-Decimal Precision
+
+Experts compare AI suggestions (with 0.00000 precision) against Manual Overrides or Fixed Formulas. Once a preference is selected, the system updates the "Final Plan" instantly.
+
+\`\`\`mermaid
+graph TD
+    subgraph Analysis_Layer [Data Analysis Layer]
+        A[Actual Consumption] & B[Historical Data] --> C{AI Trend Analysis}
+    end
+    
+    subgraph Decision_Layer [Expert Decision Layer]
+        C -- Suggestion --> D[Comparison Table]
+        E[Manual Override] --> D
+        F[Formula Result] --> D
+    end
+    
+    D --> G((Approved Final Stock))
+    
+    style C fill:#10b981,stroke:#059669,color:#fff
+    style D fill:#3b82f6,stroke:#2563eb,color:#fff
 \`\`\`
 `
         }
