@@ -60,7 +60,7 @@ mock.onGet(/\/forecast\/detail\/.+/).reply((config) => {
     const history = [];
     const pastForecasts = [];
 
-    for (let year = 2016; year <= 2025; year++) {
+    for (let year = 2020; year <= 2025; year++) {
         for(let m = 1; m <= 12; m++) {
             const baseSales = Math.floor(Math.random() * 4000) + 1500;
             const seasonalMultiplier = 1 + Math.sin((m / 12) * Math.PI * 2) * 0.25;

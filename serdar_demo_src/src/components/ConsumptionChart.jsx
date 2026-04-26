@@ -26,7 +26,7 @@ const ConsumptionChart = ({ itemId }) => {
 
     const chartData = useMemo(() => {
         return data
-            .filter(d => d.date >= "2024-01-01") 
+            .filter(d => d.date >= "2020-01-01") 
             .map(d => {
                 const date = new Date(d.date);
                 return {

@@ -38,7 +38,7 @@ const ForecastDetailChart = ({ itemId, hideTable }) => {
 
         // Add historical sales (monthly totals)
         if (data.sales_history) {
-            data.sales_history.forEach(s => {
+            data.sales_history.filter(s => s.year >= 2020).forEach(s => {
                 const key = `${s.year}-${String(s.month).padStart(2, "0")}`;
                 if (!map[key]) map[key] = { date: key, month: s.month, year: s.year };
                 map[key].actual = Math.round(s.total_sales);
@@ -47,14 +47,14 @@ const ForecastDetailChart = ({ itemId, hideTable }) => {
 
         // Add past forecast data
         if (data.past_forecasts) {
-            data.past_forecasts.forEach(f => {
+            data.past_forecasts.filter(f => parseInt(f.date.slice(0, 4)) >= 2020).forEach(f => {
                 const dateStr = f.date.slice(0, 7);
                 const month = parseInt(f.date.slice(5, 7));
                 const year = parseInt(f.date.slice(0, 4));
                 if (!map[dateStr]) map[dateStr] = { date: dateStr, month, year };
                 map[dateStr].pastForecast = Math.round(f.yhat);
                 if (f.yhat_lower != null && f.yhat_upper != null) {
-                    map[dateStr].confidenceRange = [Math.round(f.yhat_lower), Math.round(f.yhat_upper)];
+                    map[dateStr].pastConfidence = [Math.round(f.yhat_lower), Math.round(f.yhat_upper)];
                 }
             });
         }
@@ -68,12 +68,14 @@ const ForecastDetailChart = ({ itemId, hideTable }) => {
                 if (!map[dateStr]) map[dateStr] = { date: dateStr, month, year };
                 map[dateStr].futureForecast = Math.round(f.yhat);
                 if (f.yhat_lower != null && f.yhat_upper != null) {
-                    map[dateStr].confidenceRange = [Math.round(f.yhat_lower), Math.round(f.yhat_upper)];
+                    map[dateStr].futureConfidence = [Math.round(f.yhat_lower), Math.round(f.yhat_upper)];
                 }
             });
         }
 
-        return Object.values(map).sort((a, b) => a.date.localeCompare(b.date));
+        return Object.values(map)
+            .filter(d => d.year >= 2020)
+            .sort((a, b) => a.date.localeCompare(b.date));
     }, [data]);
 
     // Build month-specific history table
@@ -136,14 +138,15 @@ const ForecastDetailChart = ({ itemId, hideTable }) => {
                     })()}
                 </p>
                 {payload.map((p, i) => {
-                    if (p.dataKey === "confidenceRange") {
+                    if (p.dataKey === "pastConfidence" || p.dataKey === "futureConfidence") {
+                        const isFuture = p.dataKey === "futureConfidence";
                         return (
                             <div key={i} className="flex justify-between items-center gap-4 py-0.5">
-                                <span className="text-purple-500 flex items-center gap-1.5">
-                                    <span className="w-3 h-2 bg-purple-200 rounded-sm inline-block"></span>
+                                <span className={`${isFuture ? "text-emerald-500" : "text-purple-500"} flex items-center gap-1.5`}>
+                                    <span className={`w-3 h-2 ${isFuture ? "bg-emerald-200" : "bg-purple-200"} rounded-sm inline-block`}></span>
                                     Güven Aralığı
                                 </span>
-                                <span className="font-semibold text-purple-600">
+                                <span className={`font-semibold ${isFuture ? "text-emerald-600" : "text-purple-600"}`}>
                                     {p.value[0]} – {p.value[1]}
                                 </span>
                             </div>
@@ -190,9 +193,13 @@ const ForecastDetailChart = ({ itemId, hideTable }) => {
                 <ResponsiveContainer width="100%" height={320}>
                     <ComposedChart data={chartData} margin={{ top: 5, right: 20, bottom: 5, left: 10 }}>
                         <defs>
-                            <linearGradient id={`confidence-${itemId}`} x1="0" y1="0" x2="0" y2="1">
+                            <linearGradient id={`past-conf-${itemId}`} x1="0" y1="0" x2="0" y2="1">
                                 <stop offset="0%" stopColor="#8b5cf6" stopOpacity={0.15} />
                                 <stop offset="100%" stopColor="#8b5cf6" stopOpacity={0.05} />
+                            </linearGradient>
+                            <linearGradient id={`future-conf-${itemId}`} x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stopColor="#10b981" stopOpacity={0.2} />
+                                <stop offset="100%" stopColor="#10b981" stopOpacity={0.08} />
                             </linearGradient>
                         </defs>
                         <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.7} />
@@ -219,22 +226,38 @@ const ForecastDetailChart = ({ itemId, hideTable }) => {
                                     actual: "Gerçek Satış",
                                     pastForecast: "Geçmiş Tahmin",
                                     futureForecast: "Gelecek AI Tahmini",
-                                    confidenceRange: "Güven Aralığı (%95)"
+                                    pastConfidence: "Geçmiş Güven Aralığı",
+                                    futureConfidence: "Gelecek Güven Aralığı"
                                 };
+                                if (value === "futureConfidence") return <span className="text-emerald-600 font-medium">Güven Aralığı (%95)</span>;
+                                if (value === "pastConfidence") return null; // Legend'da tek bir güven aralığı göstermek daha temiz
                                 return <span className={value === "futureForecast" ? "text-emerald-600 font-bold" : "text-gray-600"}>{map[value] || value}</span>;
                             }}
                         />
 
-                        {/* Confidence interval - shaded area */}
+                        {/* Confidence intervals - shaded areas */}
                         <Area
-                            dataKey="confidenceRange"
-                            fill={`url(#confidence-${itemId})`}
+                            type="monotone"
+                            dataKey="pastConfidence"
+                            fill={`url(#past-conf-${itemId})`}
                             stroke="#8b5cf6"
                             strokeWidth={0.5}
                             strokeDasharray="3 3"
                             strokeOpacity={0.3}
                             fillOpacity={1}
-                            name="confidenceRange"
+                            name="pastConfidence"
+                            connectNulls={true}
+                        />
+                        <Area
+                            type="monotone"
+                            dataKey="futureConfidence"
+                            fill={`url(#future-conf-${itemId})`}
+                            stroke="#10b981"
+                            strokeWidth={0.5}
+                            strokeDasharray="3 3"
+                            strokeOpacity={0.4}
+                            fillOpacity={1}
+                            name="futureConfidence"
                             connectNulls={true}
                         />
 
