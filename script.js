@@ -10,7 +10,7 @@ const translations = {
         nav_contact: "İletişim",
 
         hero_hello: "Merhaba, ben",
-        hero_role: "Dijital Dönüşüm & Süreç Otomasyonu Uzmanı | Endüstri Mühendisi",
+        hero_role: "Endüstri Mühendisi | Dijital Dönüşüm & Süreç Otomasyonu ",
         hero_desc: "",
         hero_cv_btn: "CV İndir",
         utils_contact_btn: "İletişime Geç",
@@ -33,7 +33,6 @@ const translations = {
         skill_ai_arch: "Yapay Zeka Tabanlı Geliştirme",
         skill_prompt: "Prompt Mühendisliği",
         skill_automation: "İş Akış Otomasyonu",
-        skill_rapid: "Hızlı Prototipleme",
         skill_pm: "Proje Yönetimi",
         skill_or: "Yöneylem Araştırması (OR)",
         skill_analytical: "Analitik Düşünme",
@@ -146,7 +145,6 @@ const translations = {
         skill_ai_arch: "AI-Driven Development",
         skill_prompt: "Prompt Engineering",
         skill_automation: "Workflow Automation",
-        skill_rapid: "Rapid Prototyping",
         skill_pm: "Project Management",
         skill_or: "Operation Research",
         skill_analytical: "Analytical Thinking",
@@ -204,7 +202,7 @@ const translations = {
 
         section_contact: "Contact",
         contact_heading: "Get In Touch",
-        contact_desc: "I am open to new projects, collaborations, job offers, or just to say hi.",
+        contact_desc: "I am open to new projects, collaborations, job offers.",
         footer_text: "Designed & Built by Utku Altan Özkale &copy; 2026",
 
         opti_page_title: "AIERP Demo",
@@ -311,11 +309,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (mermaidContainer) {
             const mermaidCodeTR = `graph LR\n    Plan[Üretim Çizelgeleme] -->|MILP & Genetik| AIERP((AIERP<br/>Ana Beyin));\n    Inv[Emniyet Stok Analizi] -->|AI vs Formül vs Manuel| AIERP;\n    Market[Pazar & Talep] -->|Facebook Prophet| AIERP;\n    Strat[Lokasyon Seçimi] -->|Mekansal Optimizasyon| AIERP;\n    Fin[Nakit & Maliyet] -->|RNN Anomali Tespiti| AIERP;\n    style AIERP fill:#2563eb,stroke:#fff,stroke-width:2px,color:#fff,font-weight:bold`;
             const mermaidCodeEN = `graph LR\n    Plan[Production Scheduling] -->|MILP & Genetic| AIERP((AIERP<br/>Core Brain));\n    Inv[Safety Stock Analysis] -->|AI vs Formula vs Manual| AIERP;\n    Market[Market Demand] -->|Facebook Prophet| AIERP;\n    Strat[Location Selection] -->|Spatial Optimization| AIERP;\n    Fin[Cash & Finance] -->|RNN Anomaly Detection| AIERP;\n    style AIERP fill:#2563eb,stroke:#fff,stroke-width:2px,color:#fff,font-weight:bold`;
-            
+
             mermaidContainer.innerHTML = `<div class="mermaid">${lang === 'tr' ? mermaidCodeTR : mermaidCodeEN}</div>`;
             const modal = document.getElementById('aierpModal');
             if (modal) modal.dataset.mermaidRendered = 'false';
-            
+
             // Auto re-render if modal is already open
             if (modal && modal.classList.contains('active') && typeof mermaid !== 'undefined') {
                 mermaid.init(undefined, mermaidContainer.querySelectorAll('.mermaid'));
@@ -379,7 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modal) {
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
-            
+
             // Re-render mermaid if not rendered
             if (typeof mermaid !== 'undefined' && modal.dataset.mermaidRendered !== 'true') {
                 mermaid.init(undefined, modal.querySelectorAll('.mermaid'));
@@ -395,7 +393,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = 'auto'; // restore scroll
         }
     };
-    
+
     // Close modal on outside click
     document.addEventListener('click', (e) => {
         const modal = document.getElementById('aierpModal');
@@ -430,7 +428,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- GSAP ScrollTrigger Initializations ---
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
-        
+
         gsap.utils.toArray('.reveal').forEach((section) => {
             gsap.from(section, {
                 scrollTrigger: {
@@ -489,22 +487,22 @@ document.addEventListener('DOMContentLoaded', () => {
             cards.forEach((card, index) => {
                 // Determine relative position of card (0 is center)
                 const relativePos = index - progress;
-                
+
                 // Calculate 3D transforms
                 const absPos = Math.abs(relativePos);
-                
+
                 // Scale based on distance from center
                 const scale = 1 - absPos * scaleFactor;
-                
+
                 // Rotation based on position
                 const rotationY = relativePos * -35; // Tilt away from center
-                
+
                 // Depth (Z) offset
                 const z = absPos * zDepth;
-                
+
                 // Horizontal offset (arc effect)
                 const x = relativePos * xSpread;
-                
+
                 // Opacity fade
                 const opacity = 1 - absPos * 0.4;
 
@@ -535,16 +533,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const hintContainer = document.querySelector('.cert-carousel-hint');
         if (hintContainer) {
             hintContainer.style.cursor = 'default';
-            
+
             hintContainer.addEventListener('click', (e) => {
                 // Find if an icon (i or svg) was clicked
                 const arrow = e.target.closest('i, svg');
                 if (!arrow) return;
-                
+
                 // Identify all icons in the hint to distinguish left and right
                 const allIcons = Array.from(hintContainer.querySelectorAll('i, svg'));
                 const index = allIcons.indexOf(arrow);
-                
+
                 if (index === 0) { // Left Arrow
                     targetProgress = Math.max(0, Math.round(targetProgress - 1));
                 } else if (index === 1) { // Right Arrow
@@ -576,7 +574,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const x = e.pageX;
             const diff = (startX - x) / 500; // Sensitivity
             targetProgress = startProgress + diff;
-            
+
             velocity = x - lastX;
             lastX = x;
         });
@@ -585,21 +583,21 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!isDown) return;
             isDown = false;
             wrapper.style.cursor = 'grab';
-            
+
             // Momentum snapping
             const momentum = velocity * 0.01;
             targetProgress -= momentum;
-            
+
             // Snap to closest card
             targetProgress = Math.round(targetProgress);
-            
+
             // Constrain
             targetProgress = Math.max(0, Math.min(cards.length - 1, targetProgress));
         });
 
         // Mouse Wheel support
         wrapper.addEventListener('wheel', (e) => {
-            if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) return; 
+            if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) return;
             e.preventDefault();
             targetProgress += e.deltaX * 0.002;
             targetProgress = Math.max(0, Math.min(cards.length - 1, targetProgress));
