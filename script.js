@@ -269,8 +269,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     window.scrollTo(0, 0);
 
-    // Language Toggle logic continues...
-    let currentLang = localStorage.getItem('lang') || 'tr';
+    // Language Toggle logic — always start in English
+    let currentLang = 'en';
     const langBtn = document.getElementById('lang-toggle');
 
     // Initial load
@@ -278,8 +278,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     langBtn.addEventListener('click', () => {
         currentLang = currentLang === 'tr' ? 'en' : 'tr';
-        localStorage.setItem('lang', currentLang);
-        window.location.reload();
+        updateLanguage(currentLang);
+        feather.replace();
     });
 
     function updateLanguage(lang) {
