@@ -10,7 +10,7 @@ const translations = {
         nav_contact: "İletişim",
 
         hero_hello: "Merhaba, ben",
-        hero_role: "Endüstri Mühendisi | Dijital Dönüşüm & Süreç Otomasyonu ",
+        hero_role: "Endüstri Mühendisi | Dijital Dönüşüm & Çözüm Mimarı ",
         hero_desc: "",
         hero_cv_btn: "CV İndir",
         utils_contact_btn: "İletişime Geç",
@@ -122,7 +122,7 @@ const translations = {
         nav_contact: "Contact",
 
         hero_hello: "Hi, I am",
-        hero_role: "Industrial Engineer | Digital Transformation & Process Automation",
+        hero_role: "Industrial Engineer | Digital Transformation & Solutions Architect",
         hero_desc: "",
         hero_cv_btn: "Download CV",
         utils_contact_btn: "Get in Touch",
